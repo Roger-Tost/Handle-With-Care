@@ -10,6 +10,11 @@ public class scr_CharacterMovement : MonoBehaviour
     public float MoveSpeed;
     public Vector3 MoveDirection;
     public Vector3 MoveVelocity;
+    public float distanciaDeRecogida = 3f;
+    private GameObject objetoRecogido = null;
+    public Transform mano;
+
+
 
     float ySpeed;
     float Gravity = -9.8f;
@@ -45,6 +50,26 @@ public class scr_CharacterMovement : MonoBehaviour
 
         // **Rotar el personaje en el eje Y hacia la dirección de la cámara**
         RotateCharacter();
+
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (objetoRecogido == null)
+            {
+                PickupIntent();
+            }
+            else
+            {
+                SoltarObjeto();
+            }
+        }
+
+        if (objetoRecogido != null)
+        {
+            objetoRecogido.transform.position = mano.position;
+        }
+
+
+
     }
 
     void RotateCharacter()
@@ -70,4 +95,59 @@ public class scr_CharacterMovement : MonoBehaviour
             ySpeed += Gravity * Time.deltaTime;
         }
     }
+
+    void PickupIntent()
+    {
+        RaycastHit hit;
+
+        // Genera un rayo desde el centro de la cámara hacia adelante
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        if (Physics.Raycast(ray, out hit, distanciaDeRecogida))
+        {
+            if (hit.transform.CompareTag("Pickup"))
+            {
+                objetoRecogido = hit.transform.gameObject;
+
+                // Asegúrate de que el Rigidbody está configurado correctamente
+                Rigidbody rb = objetoRecogido.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                }
+
+                // Opcional: Desactiva la gravedad si es necesario
+                if (rb != null)
+                {
+                    rb.useGravity = false;
+                }
+            }
+        }
+    }
+
+
+    void SoltarObjeto()
+    {
+        if (objetoRecogido != null)
+        {
+            Rigidbody rb = objetoRecogido.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.isKinematic = false;
+
+                // Activa la gravedad nuevamente
+                rb.useGravity = true;
+
+                // Opcional: Añade una pequeña fuerza para evitar que el objeto quede estático
+                rb.AddForce(Camera.main.transform.forward * 2f, ForceMode.Impulse);
+            }
+
+            objetoRecogido = null;
+        }
+    }
+
 }
+
+
+
