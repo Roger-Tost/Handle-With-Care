@@ -122,7 +122,28 @@ public class scr_CharacterMovement : MonoBehaviour
                     rb.useGravity = false;
                 }
             }
-        }
+
+            if (hit.transform.CompareTag("Chair"))
+            {
+                void CambiarPrioridades()
+                {
+                    // Disminuir la prioridad de la cámara fija y aumentar la de la cámara que sigue al jugador
+                    followCamera.Priority = followCameraPriority + 1;
+                    fixedCamera.Priority = fixedCameraPriority - 1;
+                }
+                    // Asegúrate de que el Rigidbody está configurado correctamente
+                    Rigidbody rb = objetoRecogido.GetComponent<Rigidbody>();
+                if (rb != null)
+                {
+                    rb.isKinematic = true;
+                }
+
+                // Opcional: Desactiva la gravedad si es necesario
+                if (rb != null)
+                {
+                    rb.useGravity = false;
+                }
+            }
     }
 
 
