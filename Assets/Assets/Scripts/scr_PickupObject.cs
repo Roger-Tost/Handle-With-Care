@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_Pickup : MonoBehaviour
+public class scr_PickupObject : MonoBehaviour
 {
     public GameObject pickup;
     public Transform mano;

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
-public class SCR_VideoTrigger : MonoBehaviour
+public class scr_VideoTrigger : MonoBehaviour
 {
     public GameObject textoCanvas; // Referencia al texto en el Canvas
     public VideoPlayer videoPlayer; // Componente VideoPlayer asociado al objeto

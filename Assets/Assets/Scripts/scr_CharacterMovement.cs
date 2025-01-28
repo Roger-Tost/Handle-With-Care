@@ -4,170 +4,148 @@ using UnityEngine;
 
 public class scr_CharacterMovement : MonoBehaviour
 {
-    CharacterController controller;
-    GameObject Cam;
-    public GameObject Character;
-    public float MoveSpeed;
-    public Vector3 MoveDirection;
-    public Vector3 MoveVelocity;
-    public float distanciaDeRecogida = 3f;
-    private GameObject objetoRecogido = null;
-    public Transform mano;
+    // Componentes del personaje
+    private CharacterController controller;
+    private GameObject mainCamera;
 
+    // Movimiento
+    public GameObject characterModel; // Modelo del personaje para rotarlo
+    public float moveSpeed = 5f;      // Velocidad de movimiento
+    private Vector3 moveDirection;
+    private Vector3 velocity;
+    private float gravity = -9.8f;
+    private float ySpeed;
 
+    // Interacción
+    public float interactionRange = 3f; // Rango de interacción
+    private GameObject heldObject = null;
+    public Transform hand;              // Punto donde se posicionará el objeto recogido
 
-    float ySpeed;
-    float Gravity = -9.8f;
-
-    // Start is called before the first frame update
     void Start()
     {
+        // Inicialización de componentes
         controller = GetComponent<CharacterController>();
-        Cam = Camera.main.gameObject; // Obtiene la cámara principal
+        mainCamera = Camera.main.gameObject;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        // Recibe Inputs
-        float HorizontalInput = Input.GetAxisRaw("Horizontal");
-        float VerticalInput = Input.GetAxisRaw("Vertical");
+        // Movimiento del jugador
+        HandleMovement();
 
-        // Direccionar el Vector de Movimiento
-        MoveDirection = new Vector3(HorizontalInput, 0, VerticalInput);
-        MoveDirection = Quaternion.AngleAxis(Cam.transform.rotation.eulerAngles.y, Vector3.up) * MoveDirection;
-        MoveDirection.Normalize();
-
-        // Aplica gravedad
-        SetGravity();
-
-        // Cálculo de velocidades
-        MoveVelocity = MoveDirection * MoveSpeed;
-        MoveVelocity.y += ySpeed;
-
-        // Movimiento final
-        controller.Move(MoveVelocity * Time.deltaTime);
-
-        // **Rotar el personaje en el eje Y hacia la dirección de la cámara**
-        RotateCharacter();
-
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (objetoRecogido == null)
-            {
-                PickupIntent();
-            }
-            else
-            {
-                SoltarObjeto();
-            }
-        }
-
-        if (objetoRecogido != null)
-        {
-            objetoRecogido.transform.position = mano.position;
-        }
-
-
-
+        // Interacciones con objetos
+        HandleInteraction();
     }
 
-    void RotateCharacter()
+    // Movimiento del jugador
+    void HandleMovement()
     {
-        // Obtiene la rotación en Y de la cámara
-        float targetYRotation = Cam.transform.rotation.eulerAngles.y;
+        // Obtener inputs de movimiento
+        float horizontalInput = Input.GetAxisRaw("Horizontal");
+        float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Obtiene la rotación actual del personaje
-        Vector3 currentRotation = Character.transform.rotation.eulerAngles;
+        // Calcular dirección del movimiento
+        moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+        moveDirection = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0) * moveDirection;
+        moveDirection.Normalize();
 
-        // Mantén los valores actuales de X y Z, y modifica solo el Y
-        Character.transform.rotation = Quaternion.Euler(currentRotation.x, targetYRotation, currentRotation.z);
-    }
-
-    void SetGravity()
-    {
+        // Aplicar gravedad
         if (controller.isGrounded)
         {
-            ySpeed = -1f;
+            ySpeed = -1f; // Asegurar que no flote
         }
         else
         {
-            ySpeed += Gravity * Time.deltaTime;
+            ySpeed += gravity * Time.deltaTime;
+        }
+
+        // Calcular velocidad final
+        velocity = moveDirection * moveSpeed;
+        velocity.y = ySpeed;
+
+        // Mover al personaje
+        controller.Move(velocity * Time.deltaTime);
+
+        // Rotar el modelo del personaje hacia la dirección del movimiento
+        if (moveDirection.magnitude > 0)
+        {
+            characterModel.transform.rotation = Quaternion.LookRotation(moveDirection);
         }
     }
 
-    void PickupIntent()
+    // Interacción con objetos
+    void HandleInteraction()
+    {
+        if (Input.GetKeyDown(KeyCode.E)) // Tecla para interactuar
+        {
+            if (heldObject == null)
+            {
+                TryPickupObject();
+            }
+            else
+            {
+                DropObject();
+            }
+        }
+
+        // Si hay un objeto recogido, posicionarlo en la mano
+        if (heldObject != null)
+        {
+            heldObject.transform.position = hand.position;
+        }
+    }
+
+    // Intentar recoger un objeto
+    void TryPickupObject()
     {
         RaycastHit hit;
+        Ray ray = new Ray(mainCamera.transform.position, mainCamera.transform.forward);
 
-        // Genera un rayo desde el centro de la cámara hacia adelante
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-        if (Physics.Raycast(ray, out hit, distanciaDeRecogida))
+        if (Physics.Raycast(ray, out hit, interactionRange))
         {
             if (hit.transform.CompareTag("Pickup"))
             {
-                objetoRecogido = hit.transform.gameObject;
+                // Recoger el objeto
+                heldObject = hit.transform.gameObject;
+                Rigidbody rb = heldObject.GetComponent<Rigidbody>();
 
-                // Asegúrate de que el Rigidbody está configurado correctamente
-                Rigidbody rb = objetoRecogido.GetComponent<Rigidbody>();
                 if (rb != null)
                 {
-                    rb.isKinematic = true;
-                }
-
-                // Opcional: Desactiva la gravedad si es necesario
-                if (rb != null)
-                {
+                    rb.isKinematic = true; // Desactivar físicas
                     rb.useGravity = false;
                 }
             }
-
-            if (hit.transform.CompareTag("Chair"))
+            else if (hit.transform.CompareTag("Chair"))
             {
-                void CambiarPrioridades()
-                {
-                    // Disminuir la prioridad de la cámara fija y aumentar la de la cámara que sigue al jugador
-                    followCamera.Priority = followCameraPriority + 1;
-                    fixedCamera.Priority = fixedCameraPriority - 1;
-                }
-                    // Asegúrate de que el Rigidbody está configurado correctamente
-                    Rigidbody rb = objetoRecogido.GetComponent<Rigidbody>();
-                if (rb != null)
-                {
-                    rb.isKinematic = true;
-                }
-
-                // Opcional: Desactiva la gravedad si es necesario
-                if (rb != null)
-                {
-                    rb.useGravity = false;
-                }
+                SwitchToFixedCamera(); // Cambia la cámara según lo que requieras
             }
-    }
-
-
-    void SoltarObjeto()
-    {
-        if (objetoRecogido != null)
-        {
-            Rigidbody rb = objetoRecogido.GetComponent<Rigidbody>();
-
-            if (rb != null)
-            {
-                rb.isKinematic = false;
-
-                // Activa la gravedad nuevamente
-                rb.useGravity = true;
-
-                // Opcional: Añade una pequeña fuerza para evitar que el objeto quede estático
-                rb.AddForce(Camera.main.transform.forward * 2f, ForceMode.Impulse);
-            }
-
-            objetoRecogido = null;
         }
     }
 
+    // Soltar el objeto recogido
+    void DropObject()
+    {
+        if (heldObject != null)
+        {
+            Rigidbody rb = heldObject.GetComponent<Rigidbody>();
+
+            if (rb != null)
+            {
+                rb.isKinematic = false; // Reactivar físicas
+                rb.useGravity = true;
+                rb.AddForce(mainCamera.transform.forward * 2f, ForceMode.Impulse); // Pequeña fuerza
+            }
+
+            heldObject = null;
+        }
+    }
+
+    // Cambiar a cámara fija (si es necesario implementar algo relacionado con cámaras en el futuro)
+    void SwitchToFixedCamera()
+    {
+        Debug.Log("Interacción con silla detectada. Aquí podrías activar una cámara fija.");
+        // Lógica para cambiar de cámara si en un futuro decides implementar algo.
+    }
 }
 
 

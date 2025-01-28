@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class SCR_Descansar : MonoBehaviour
+public class scr_Sleep: MonoBehaviour
 {
     public GameObject textoCanvas; // Referencia al texto en el Canvas
     public Image fadeImage; // Imagen de la UI que realiza el fundido

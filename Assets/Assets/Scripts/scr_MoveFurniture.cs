@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_MoverMueble : MonoBehaviour
+public class scr_MoveFurniture : MonoBehaviour
 {
     public GameObject objectToMove; // Objeto que queremos mover
     public Transform player; // Transform del jugador

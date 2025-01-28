@@ -2,10 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_Llave : MonoBehaviour
+public class scr_Key : MonoBehaviour
 {
     // Referencia al script de la puerta para permitirla abrirse
-    public SCR_Door doorScript;
+    public scr_Door doorScript;
 
     // Variable para verificar si la llave ya fue recogida
     private bool llaveRecogida = false;
@@ -15,7 +15,7 @@ public class SCR_Llave : MonoBehaviour
         // Busca un objeto con el script SCR_Door en la escena, si no está asignado manualmente
         if (doorScript == null)
         {
-            doorScript = FindObjectOfType<SCR_Door>();
+            doorScript = FindObjectOfType<scr_Door>();
         }
     }
 

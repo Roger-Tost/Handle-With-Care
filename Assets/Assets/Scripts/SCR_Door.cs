@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SCR_Door : MonoBehaviour
+public class scr_Door : MonoBehaviour
 {
     // Variable para saber si el jugador tiene la llave
     public bool HasKey = false;
