@@ -11,9 +11,11 @@ public class scr_Sleep: MonoBehaviour
     public float fadeDuration = 1.0f; // Duración del fundido
     public float waitTime = 1.0f; // Tiempo que la pantalla permanece en negro
     private bool activo; // Determina si el trigger está activo
+    private scr_CharacterMovement CharacterScript;
 
     void Start()
     {
+        CharacterScript = FindObjectOfType<scr_CharacterMovement>();
         // Si la imagen no está asignada manualmente, intenta buscarla automáticamente
         if (fadeImage == null)
         {
@@ -29,8 +31,12 @@ public class scr_Sleep: MonoBehaviour
     {
         if (activo && Input.GetKeyDown(KeyCode.E)) // Presionar 'E' dentro del trigger
         {
+            StartCoroutine(Dormir(4));
             StartCoroutine(FadeInAndOut()); // Iniciar el fundido completo
             textoCanvas.SetActive(false); // Ocultar el texto
+            CharacterScript.CanMove = false;
+            
+            
         }
     }
 
@@ -86,5 +92,13 @@ public class scr_Sleep: MonoBehaviour
 
         currentColor.a = endAlpha; // Asegurar el valor final
         fadeImage.color = currentColor;
+    }
+
+
+    private IEnumerator Dormir(float TiempoCama)
+    {
+        CharacterScript.transform.position = transform.position;
+        yield return new WaitForSeconds(TiempoCama);
+        CharacterScript.CanMove = true;
     }
 }

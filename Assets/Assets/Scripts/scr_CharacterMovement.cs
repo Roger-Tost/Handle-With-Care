@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class scr_CharacterMovement : MonoBehaviour
 {
     // Componentes del personaje
     private CharacterController controller;
-    private GameObject mainCamera;
+    public GameObject mainCamera;
 
     // Movimiento
     public GameObject characterModel; // Modelo del personaje para rotarlo
@@ -15,17 +16,19 @@ public class scr_CharacterMovement : MonoBehaviour
     private Vector3 velocity;
     private float gravity = -9.8f;
     private float ySpeed;
+    public bool CanMove;
 
     // Interacción
     public float interactionRange = 3f; // Rango de interacción
     private GameObject heldObject = null;
     public Transform hand;              // Punto donde se posicionará el objeto recogido
 
+
     void Start()
     {
+        CanMove = true;
         // Inicialización de componentes
         controller = GetComponent<CharacterController>();
-        mainCamera = Camera.main.gameObject;
     }
 
     void Update()
@@ -40,36 +43,39 @@ public class scr_CharacterMovement : MonoBehaviour
     // Movimiento del jugador
     void HandleMovement()
     {
-        // Obtener inputs de movimiento
-        float horizontalInput = Input.GetAxisRaw("Horizontal");
-        float verticalInput = Input.GetAxisRaw("Vertical");
-
-        // Calcular dirección del movimiento
-        moveDirection = new Vector3(horizontalInput, 0, verticalInput);
-        moveDirection = Quaternion.Euler(0, mainCamera.transform.eulerAngles.y, 0) * moveDirection;
-        moveDirection.Normalize();
-
-        // Aplicar gravedad
-        if (controller.isGrounded)
+        if (CanMove == true)
         {
-            ySpeed = -1f; // Asegurar que no flote
-        }
-        else
-        {
-            ySpeed += gravity * Time.deltaTime;
-        }
+            // Obtener inputs de movimiento
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
 
-        // Calcular velocidad final
-        velocity = moveDirection * moveSpeed;
-        velocity.y = ySpeed;
+            // Calcular dirección del movimiento
+            moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+            moveDirection = Quaternion.AngleAxis(mainCamera.transform.rotation.eulerAngles.y, Vector3.up) * moveDirection;
+            moveDirection.Normalize();
 
-        // Mover al personaje
-        controller.Move(velocity * Time.deltaTime);
+            // Aplicar gravedad
+            if (controller.isGrounded)
+            {
+                ySpeed = -1f; // Asegurar que no flote
+            }
+            else
+            {
+                ySpeed += gravity * Time.deltaTime;
+            }
 
-        // Rotar el modelo del personaje hacia la dirección del movimiento
-        if (moveDirection.magnitude > 0)
-        {
-            characterModel.transform.rotation = Quaternion.LookRotation(moveDirection);
+            // Calcular velocidad final
+            velocity = moveDirection * moveSpeed;
+            velocity.y = ySpeed;
+
+            // Mover al personaje
+            controller.Move(velocity * Time.deltaTime);
+
+            // Rotar el modelo del personaje hacia la dirección del movimiento
+            if (moveDirection.magnitude > 0)
+            {
+                characterModel.transform.rotation = Quaternion.LookRotation(moveDirection);
+            }
         }
     }
 
