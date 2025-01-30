@@ -15,8 +15,7 @@ public class scr_VideoTrigger : MonoBehaviour
         {
             if (videoPlayer != null)
             {
-                videoPlayer.Play(); // Reproducir el video
-                textoCanvas.SetActive(false); // Ocultar el texto al reproducir el video
+                MostrarVideo();
             }
         }
     }
@@ -37,5 +36,12 @@ public class scr_VideoTrigger : MonoBehaviour
             activo = false;
             textoCanvas.SetActive(false); // Ocultar el texto al salir del trigger
         }
+    }
+
+
+    public void MostrarVideo()
+    {
+        videoPlayer.Play(); // Reproducir el video
+        textoCanvas.SetActive(false); // Ocultar el texto al reproducir el video
     }
 }

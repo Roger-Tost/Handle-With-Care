@@ -7,8 +7,16 @@ public class scr_PickupObject : MonoBehaviour
     public GameObject pickup;
     public Transform mano;
     public GameObject textoCanvas; // Referencia al texto en el Canvas
-    private bool activo;
-    private bool objetoEnMano; // Variable para saber si el objeto está en la mano
+    public bool activo;
+    public bool objetoEnMano; // Variable para saber si el objeto está en la mano
+    public float distanciaMaxima = 3f; // Distancia máxima para interactuar
+    public GameObject squareTarget; // El cuadrado invisible (debe tener el script de SquareTarget)
+
+    private Camera cam;
+
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -17,20 +25,20 @@ public class scr_PickupObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && !objetoEnMano) // Solo permitir al jugador recoger si no tiene el objeto
             {
-                pickup.transform.SetParent(mano);
-                pickup.transform.position = mano.position;
-                pickup.GetComponent<Rigidbody>().isKinematic = true;
-                objetoEnMano = true;
-                textoCanvas.SetActive(false); // Ocultar el texto cuando el objeto es recogido
+                PillarObjeto();
             }
         }
 
         if (Input.GetKeyDown(KeyCode.R) && objetoEnMano)
         {
-            pickup.transform.SetParent(null);
-            pickup.GetComponent<Rigidbody>().isKinematic = false;
-            objetoEnMano = false;
+            DejarObjeto();
         }
+
+
+        
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -50,4 +58,23 @@ public class scr_PickupObject : MonoBehaviour
             textoCanvas.SetActive(false); // Desactivar el texto cuando el jugador salga del collider
         }
     }
+
+    public void PillarObjeto()
+    {
+        pickup.transform.SetParent(mano);
+        pickup.transform.position = mano.position;
+        pickup.GetComponent<Rigidbody>().isKinematic = true;
+        objetoEnMano = true;
+        textoCanvas.SetActive(false); // Ocultar el texto cuando el objeto es recogido
+    }
+
+    public void DejarObjeto()
+    {
+        pickup.transform.SetParent(null);
+        pickup.GetComponent<Rigidbody>().isKinematic = false;
+        objetoEnMano = false;
+    }
+
+   
+
 }

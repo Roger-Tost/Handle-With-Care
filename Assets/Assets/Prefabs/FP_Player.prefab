@@ -169,8 +169,8 @@ Transform:
   m_GameObject: {fileID: 416172533186195988}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.185, y: -0.189, z: 0.543}
-  m_LocalScale: {x: 0.30773246, y: 0.30614737, z: 3.9731684}
+  m_LocalPosition: {x: 0.229, y: -0.199, z: 0.695}
+  m_LocalScale: {x: 0.30773246, y: 0.30614737, z: 0.34383076}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5611506396397020850}
@@ -190,7 +190,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 416172533186195988}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -313,8 +313,8 @@ Transform:
   m_Children:
   - {fileID: 3381148753200986574}
   - {fileID: 2392008025631773057}
-  - {fileID: 8403913786476446300}
   - {fileID: 9197131899194701215}
+  - {fileID: 8403913786476446300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3275453593778483134
@@ -402,8 +402,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eddeb36fec28fb84e809d1ee5d215e62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainCamera: {fileID: 0}
   characterModel: {fileID: 2501023313074225842}
   moveSpeed: 5
+  CanMove: 0
   interactionRange: 3
   hand: {fileID: 8403913786476446300}
 --- !u!143 &8473292042076351854
