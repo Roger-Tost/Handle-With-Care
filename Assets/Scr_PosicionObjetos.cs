@@ -1,26 +1,49 @@
 using UnityEngine;
 
-public class SquareTarget : MonoBehaviour
+public class Scr_PosicionObjetos : MonoBehaviour
 {
     private Renderer rend;
     private bool isLookingAt = false;
+    public bool PuedeDejarObjeto = false;
+    public bool ObjetoDejado = false;
+
+    private scr_PickupObject PickupObject;
 
     void Start()
     {
         rend = GetComponent<Renderer>();
+        PickupObject = FindObjectOfType<scr_PickupObject>();
     }
 
     void Update()
     {
-        if (isLookingAt)
+        if (PickupObject.TieneElTeclado)
         {
-            rend.enabled = true;
-            rend.material.color = Color.green; // El cuadrado se vuelve verde
+            if (isLookingAt)
+            {
+                rend.enabled = true;
+                rend.material.color = Color.green; // El cuadrado se vuelve verde
+                PuedeDejarObjeto = true;
+            }
+            else
+            {
+                rend.enabled = true;
+                rend.material.color = Color.red;
+                PuedeDejarObjeto = false;
+            }
         }
-        else
+
+        else if (PickupObject.TieneElTeclado == false)
         {
             rend.enabled = false;
         }
+
+        if (ObjetoDejado)
+        {
+            Destroy(gameObject);
+        }
+
+
     }
 
     void OnMouseEnter()

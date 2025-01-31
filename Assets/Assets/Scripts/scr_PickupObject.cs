@@ -14,8 +14,20 @@ public class scr_PickupObject : MonoBehaviour
 
     private Camera cam;
 
+    private Scr_PosicionObjetos PosicionObjetos;
+    private Scr_teclado telcado;
+
+    public int IDObjeto;
+    public bool TieneElTeclado = false;
+    
 
 
+
+    private void Start()
+    {
+        PosicionObjetos = FindObjectOfType<Scr_PosicionObjetos>();
+        telcado = FindObjectOfType<Scr_teclado>();
+    }
 
 
     // Update is called once per frame
@@ -25,13 +37,33 @@ public class scr_PickupObject : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && !objetoEnMano) // Solo permitir al jugador recoger si no tiene el objeto
             {
-                PillarObjeto();
+
+                if (IDObjeto == 1 && PosicionObjetos.ObjetoDejado == false)
+                {
+                    PillarObjeto();
+                    TieneElTeclado = true;
+                }
+
+                else if (IDObjeto == 1 && PosicionObjetos.ObjetoDejado)
+                {
+                    Debug.Log("Objeto ya dejado, no puedes recogerlo.");
+                }
+                else PillarObjeto(); 
+
             }
         }
 
         if (Input.GetKeyDown(KeyCode.R) && objetoEnMano)
         {
-            DejarObjeto();
+            if (PosicionObjetos.PuedeDejarObjeto == false)
+            {
+                DejarObjeto();
+            }
+            else if (PosicionObjetos.PuedeDejarObjeto)
+            {
+                DejarTeclado();
+            }
+            
         }
 
 
@@ -75,6 +107,36 @@ public class scr_PickupObject : MonoBehaviour
         objetoEnMano = false;
     }
 
-   
+
+    public void DejarTeclado()
+    {
+       
+        Rigidbody rb = pickup.GetComponent<Rigidbody>();
+        bool wasKinematic = rb.isKinematic;
+        bool wasUsingGravity = rb.useGravity;
+
+       
+        rb.useGravity = false; 
+        rb.isKinematic = true; 
+
+        
+        pickup.transform.position = PosicionObjetos.transform.position;
+        pickup.transform.rotation = PosicionObjetos.transform.rotation;
+
+        
+        rb.isKinematic = wasKinematic;
+        rb.useGravity = wasUsingGravity;
+
+        
+        pickup.transform.SetParent(null);
+
+        objetoEnMano = false;
+
+        PosicionObjetos.ObjetoDejado = true;
+        Debug.Log("Dejando el teclado");
+    }
+
+
+
 
 }
