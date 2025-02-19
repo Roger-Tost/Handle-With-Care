@@ -1,27 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class Scr_PC : MonoBehaviour
 {
-    Scr_SistemaOrdenador PCinterfaz;
-
+    public Scr_SistemaOrdenador PCinterfaz;
+    public bool IsOnPC = false;
 
     private void Start()
     {
-        PCinterfaz = FindObjectOfType<Scr_SistemaOrdenador>();
+
     }
+
+
+    private void Update()
+    {
+        if (IsOnPC && Input.GetKeyDown(KeyCode.E))
+        {
+            PCinterfaz.ActivarPC();
+
+        }
+    }
+
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (Input.GetKeyDown(KeyCode.G))
-            {
-                Time.timeScale = 0;
-                PCinterfaz.ActivarPC();
-            }
+            IsOnPC = true;
+
         }
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            IsOnPC = false;
+        }
+    }
+
+
+
+
 
 
 }
