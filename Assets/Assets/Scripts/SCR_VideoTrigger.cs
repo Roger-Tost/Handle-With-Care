@@ -5,7 +5,6 @@ using UnityEngine.Video;
 
 public class scr_VideoTrigger : MonoBehaviour
 {
-    public GameObject textoCanvas; // Referencia al texto en el Canvas
     public VideoPlayer videoPlayer; // Componente VideoPlayer asociado al objeto
     private bool activo; // Determina si el trigger está activo
 
@@ -18,6 +17,14 @@ public class scr_VideoTrigger : MonoBehaviour
                 MostrarVideo();
             }
         }
+
+        if (activo && Input.GetKeyDown(KeyCode.R)) // Presionar 'E' dentro del trigger
+        {
+            if (videoPlayer != null)
+            {
+                ApagarVideo();
+            }
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,7 +32,6 @@ public class scr_VideoTrigger : MonoBehaviour
         if (other.CompareTag("Player")) // Verificar si el objeto que entra tiene el tag "Player"
         {
             activo = true;
-            textoCanvas.SetActive(true); // Mostrar texto indicando que se puede interactuar
         }
     }
 
@@ -34,14 +40,16 @@ public class scr_VideoTrigger : MonoBehaviour
         if (other.CompareTag("Player")) // Verificar si el objeto que sale tiene el tag "Player"
         {
             activo = false;
-            textoCanvas.SetActive(false); // Ocultar el texto al salir del trigger
         }
     }
-
 
     public void MostrarVideo()
     {
         videoPlayer.Play(); // Reproducir el video
-        textoCanvas.SetActive(false); // Ocultar el texto al reproducir el video
+    }
+
+    public void ApagarVideo()
+    {
+        videoPlayer.Stop();
     }
 }

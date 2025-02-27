@@ -5,58 +5,29 @@ using UnityEngine;
 public class Scr_Caja : MonoBehaviour
 {
     public Transform player;
-    public GameObject textoCanvas;
-    private bool PuedeAbrirCaja;
     private bool CajaAbierta;
-
-
-
-
-
-
-
+    public Renderer cajaRenderer;
+    public Color colorAbierto = Color.green;
+    public Color colorCerrado = Color.red;
 
     void Start()
     {
-        PuedeAbrirCaja = false;
+        if (cajaRenderer == null)
+        {
+            cajaRenderer = GetComponent<Renderer>();
+        }
+        cajaRenderer.material.color = colorCerrado;
         CajaAbierta = false;
     }
 
-    
-
-    void Update()
-    {
-        if (PuedeAbrirCaja && !CajaAbierta && Input.GetKeyDown(KeyCode.E))
-        { 
-            PuedeAbrirCaja = false;
-            CajaAbierta = true;
-            Debug.Log("AbriendoCofre");
-        }
-
-
-
-    }
-
-
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (textoCanvas != null)
+            if (Input.GetKeyDown(KeyCode.E) && !CajaAbierta)
             {
-                textoCanvas.SetActive(true);
-                PuedeAbrirCaja = true;
-            }
-        }
-    } 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player"))
-        {
-            if (textoCanvas != null)
-            {
-                textoCanvas.SetActive(false);
-                PuedeAbrirCaja = false;
+                CajaAbierta = true;
+                cajaRenderer.material.color = colorAbierto;
             }
         }
     }

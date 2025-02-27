@@ -78,7 +78,6 @@ public class scr_PickupObject : MonoBehaviour
         if (other.tag == "Player" && !objetoEnMano) // Solo activar el texto si no tienes el objeto en la mano
         {
             activo = true;
-            textoCanvas.SetActive(true); // Activar el texto en el Canvas cuando el jugador entre al collider
         }
     }
 
@@ -87,7 +86,6 @@ public class scr_PickupObject : MonoBehaviour
         if (other.tag == "Player" && !objetoEnMano) // Solo desactivar el texto si no tienes el objeto en la mano
         {
             activo = false;
-            textoCanvas.SetActive(false); // Desactivar el texto cuando el jugador salga del collider
         }
     }
 
@@ -97,7 +95,6 @@ public class scr_PickupObject : MonoBehaviour
         pickup.transform.position = mano.position;
         pickup.GetComponent<Rigidbody>().isKinematic = true;
         objetoEnMano = true;
-        textoCanvas.SetActive(false); // Ocultar el texto cuando el objeto es recogido
     }
 
     public void DejarObjeto()
