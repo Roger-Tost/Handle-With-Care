@@ -6,7 +6,6 @@ using UnityEngine.UI;
 
 public class scr_Sleep: MonoBehaviour
 {
-    public GameObject textoCanvas; // Referencia al texto en el Canvas
     public Image fadeImage; // Imagen de la UI que realiza el fundido
     public float fadeDuration = 1.0f; // Duración del fundido
     public float waitTime = 1.0f; // Tiempo que la pantalla permanece en negro
@@ -33,7 +32,6 @@ public class scr_Sleep: MonoBehaviour
         {
             StartCoroutine(Dormir(4));
             StartCoroutine(FadeInAndOut()); // Iniciar el fundido completo
-            textoCanvas.SetActive(false); // Ocultar el texto
             CharacterScript.CanMove = false;
             
             
@@ -45,7 +43,6 @@ public class scr_Sleep: MonoBehaviour
         if (other.CompareTag("Player")) // Verificar si el objeto que entra tiene el tag "Player"
         {
             activo = true;
-            textoCanvas.SetActive(true); // Mostrar texto indicando que se puede interactuar
         }
     }
 
@@ -54,7 +51,6 @@ public class scr_Sleep: MonoBehaviour
         if (other.CompareTag("Player")) // Verificar si el objeto que sale tiene el tag "Player"
         {
             activo = false;
-            textoCanvas.SetActive(false); // Ocultar el texto al salir del trigger
         }
     }
 

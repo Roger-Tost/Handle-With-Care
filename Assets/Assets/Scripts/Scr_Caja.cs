@@ -7,8 +7,8 @@ public class Scr_Caja : MonoBehaviour
     public Transform player;
     private bool CajaAbierta;
     public Renderer cajaRenderer;
-    public Color colorAbierto = Color.green;
-    public Color colorCerrado = Color.red;
+    public Color colorAbierto = Color.red;
+    public Color colorCerrado = Color.green;
 
     void Start()
     {

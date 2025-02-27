@@ -4,29 +4,30 @@ using UnityEngine;
 
 public class scr_Sit : MonoBehaviour
 {
-    public Camera mainCamera;       // Referencia a la cámara principal
-    public Camera secondaryCamera; // Referencia a la segunda cámara
-    private bool isPlayerInRange = false; // Bandera para saber si el jugador está en el rango
-    private bool isMovementBlocked = false; // Bandera para controlar el bloqueo del movimiento del jugador
+    public Camera mainCamera;
+    public Camera secondaryCamera;
+    public Transform sitCameraPosition; // Posición en la silla donde debe ubicarse la cámara
 
-    public GameObject player; // Referencia al jugador
-    public float mouseSensitivity = 100f; // Sensibilidad del ratón
+    private bool isPlayerInRange = false;
+    private bool isMovementBlocked = false;
 
-    private float xRotation = 0f; // Control de la rotación vertical de la cámara
+    public GameObject player;
+    public float mouseSensitivity = 100f;
+
+    private float xRotation = 0f;
+    private float yRotation = 0f;
 
     private void Start()
     {
-        // Asegúrate de que la cámara principal esté activa al inicio
         if (mainCamera != null) mainCamera.enabled = true;
         if (secondaryCamera != null) secondaryCamera.enabled = false;
 
-        // Bloquear el cursor al inicio
         Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Verifica si el jugador entra al rango (puedes usar el tag "Player" para identificarlo)
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
@@ -35,7 +36,6 @@ public class scr_Sit : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        // Verifica si el jugador sale del rango
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = false;
@@ -44,49 +44,63 @@ public class scr_Sit : MonoBehaviour
 
     private void Update()
     {
-        // Si el jugador está en rango y presiona la tecla E
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            // Cambia entre las cámaras
-            if (mainCamera != null && secondaryCamera != null)
-            {
-                mainCamera.enabled = !mainCamera.enabled;
-                secondaryCamera.enabled = !secondaryCamera.enabled;
-            }
-
-            // Bloquea o desbloquea el movimiento del jugador
-            isMovementBlocked = !isMovementBlocked;
-
-            if (player != null)
-            {
-                var playerMovement = player.GetComponent<scr_CharacterMovement>(); // Suponiendo que tu script de movimiento se llama "PlayerMovement"
-                if (playerMovement != null)
-                {
-                    playerMovement.enabled = !isMovementBlocked;
-                }
-            }
-
-            // Cambia el estado del cursor al alternar cámaras
-            Cursor.lockState = secondaryCamera.enabled ? CursorLockMode.Locked : CursorLockMode.None;
+            ToggleSitting();
         }
 
-        // Si la cámara secundaria está activa, permite su rotación
-        if (secondaryCamera != null && secondaryCamera.enabled)
+        if (secondaryCamera.enabled)
         {
             RotateSecondaryCamera();
         }
     }
 
+    private void ToggleSitting()
+    {
+        if (mainCamera != null && secondaryCamera != null)
+        {
+            if (!secondaryCamera.enabled)
+            {
+                // Posicionar la cámara en la silla antes de activarla
+                secondaryCamera.transform.position = sitCameraPosition.position;
+                secondaryCamera.transform.rotation = sitCameraPosition.rotation;
+            }
+
+            mainCamera.gameObject.SetActive(!mainCamera.enabled);
+            secondaryCamera.gameObject.SetActive(!secondaryCamera.enabled);
+        }
+
+        isMovementBlocked = !isMovementBlocked;
+
+        if (player != null)
+        {
+            var playerMovement = player.GetComponent<scr_CharacterMovement>();
+            if (playerMovement != null)
+            {
+                playerMovement.enabled = !isMovementBlocked;
+            }
+
+            Rigidbody rb = player.GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.constraints = isMovementBlocked ? RigidbodyConstraints.FreezeAll : RigidbodyConstraints.None;
+            }
+        }
+
+        Cursor.lockState = secondaryCamera.enabled ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !secondaryCamera.enabled;
+    }
+
     private void RotateSecondaryCamera()
     {
-        // Obtener entrada del ratón solo en el eje Y (arriba/abajo)
+        float mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
         float mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
 
-        // Controlar la rotación vertical (eje X)
         xRotation -= mouseY;
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f); // Limitar la rotación vertical para evitar que la cámara dé vueltas completas
+        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        yRotation += mouseX;
 
-        // Aplicar la rotación solo en el eje X (arriba/abajo)
-        secondaryCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        secondaryCamera.transform.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
     }
 }
+

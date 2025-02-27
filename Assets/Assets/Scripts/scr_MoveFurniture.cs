@@ -6,7 +6,6 @@ public class scr_MoveFurniture : MonoBehaviour
 {
     public GameObject objectToMove; // Objeto que queremos mover
     public Transform player; // Transform del jugador
-    public GameObject textoCanvas; // Texto del Canvas que muestra la interacción
     public float moveSpeed = 5f; // Velocidad del movimiento
     public float moveDuration = 1.0f; // Duración del movimiento
 
@@ -15,11 +14,7 @@ public class scr_MoveFurniture : MonoBehaviour
 
     void Start()
     {
-        // Asegurarse de que el texto esté desactivado al inicio
-        if (textoCanvas != null)
-        {
-            textoCanvas.SetActive(false);
-        }
+
     }
 
     void Update()
@@ -28,7 +23,6 @@ public class scr_MoveFurniture : MonoBehaviour
         if (isPlayerNearby && Input.GetKeyDown(KeyCode.E) && !isMoving)
         {
             StartCoroutine(MoveObject());
-            textoCanvas.SetActive(false); // Ocultar el texto cuando se inicia la acción
         }
     }
 
@@ -38,10 +32,6 @@ public class scr_MoveFurniture : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = true;
-            if (textoCanvas != null)
-            {
-                textoCanvas.SetActive(true); // Mostrar el texto en el Canvas
-            }
         }
     }
 
@@ -51,10 +41,6 @@ public class scr_MoveFurniture : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerNearby = false;
-            if (textoCanvas != null)
-            {
-                textoCanvas.SetActive(false); // Ocultar el texto en el Canvas
-            }
         }
     }
 
