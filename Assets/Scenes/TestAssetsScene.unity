@@ -4032,6 +4032,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1841613994793387393, guid: 70c52760f006dee48afb2e17fa471416, type: 3}
+      propertyPath: m_Name
+      value: DoorController
+      objectReference: {fileID: 0}
     - target: {fileID: 2155485494497464771, guid: 70c52760f006dee48afb2e17fa471416, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.466
@@ -4042,7 +4046,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2155485494497464771, guid: 70c52760f006dee48afb2e17fa471416, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 23.32
+      value: 23.26
       objectReference: {fileID: 0}
     - target: {fileID: 2155485494497464771, guid: 70c52760f006dee48afb2e17fa471416, type: 3}
       propertyPath: m_LocalRotation.w
