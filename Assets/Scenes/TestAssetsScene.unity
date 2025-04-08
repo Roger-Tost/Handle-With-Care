@@ -313,6 +313,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d7354aada5f45c448920a6182b2533c8, type: 3}
+--- !u!1001 &104936452
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.361
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.28
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.329
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
+      propertyPath: m_Name
+      value: Kitchen_Shelf
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 8b9e28a4385337c4aac474f11540f34f, type: 3}
 --- !u!1 &130241638
 GameObject:
   m_ObjectHideFlags: 0
@@ -7720,9 +7777,9 @@ SceneRoots:
   - {fileID: 1002699211}
   - {fileID: 1897455466}
   - {fileID: 1254474443}
+  - {fileID: 1589456281}
   - {fileID: 1653761707}
   - {fileID: 421611072}
-  - {fileID: 1589456281}
   - {fileID: 5407938013285797172}
   - {fileID: 644942936}
   - {fileID: 805396911}
@@ -7735,3 +7792,4 @@ SceneRoots:
   - {fileID: 169898722}
   - {fileID: 696010553}
   - {fileID: 1314012189}
+  - {fileID: 104936452}
