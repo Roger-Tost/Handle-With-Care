@@ -676,7 +676,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: db68b8cd7ed64734492a3793e8796227, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -715,7 +715,7 @@ Transform:
   m_GameObject: {fileID: 477883252}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7190649, y: 0.6669415, z: -0.09844748}
+  m_LocalPosition: {x: 0.7190649, y: 0.6669415, z: -1.43}
   m_LocalScale: {x: 2.0165, y: 2.0165, z: 2.0165}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -846,6 +846,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7635826562936255635, guid: aefb6b0e44a99d64fbd84f92ac715ffe, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: add40d07e71b9d0438f7e722b915ef3d, type: 2}
     - target: {fileID: 919132149155446097, guid: aefb6b0e44a99d64fbd84f92ac715ffe, type: 3}
       propertyPath: m_Name
       value: House_Layout_Thick
@@ -1562,6 +1566,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 980166592959967592, guid: 98808a69a0d744241b8a24c2fb48f904, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7695eaac020b006429579e08ad5c87d8, type: 2}
     - target: {fileID: 1628821071823818941, guid: 98808a69a0d744241b8a24c2fb48f904, type: 3}
       propertyPath: m_Name
       value: Door
@@ -1610,6 +1618,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4062103056775315780, guid: 98808a69a0d744241b8a24c2fb48f904, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7695eaac020b006429579e08ad5c87d8, type: 2}
     - target: {fileID: 4952882290085316258, guid: 98808a69a0d744241b8a24c2fb48f904, type: 3}
       propertyPath: m_LocalScale.x
       value: 1.0199
@@ -1638,6 +1650,10 @@ PrefabInstance:
       propertyPath: m_DynamicOccludee
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7227561635713864190, guid: 98808a69a0d744241b8a24c2fb48f904, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7695eaac020b006429579e08ad5c87d8, type: 2}
     m_RemovedComponents:
     - {fileID: 6511135235071074939, guid: 98808a69a0d744241b8a24c2fb48f904, type: 3}
     - {fileID: 6252069501689061096, guid: 98808a69a0d744241b8a24c2fb48f904, type: 3}
