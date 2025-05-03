@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.EventSystems;
 
 public class scr_CharacterMovement : MonoBehaviour
 {
@@ -94,10 +93,14 @@ public class scr_CharacterMovement : MonoBehaviour
             }
         }
 
-        // Si hay un objeto recogido, posicionarlo en la mano
+        // Si hay un objeto recogido, posicionarlo en la mano y hacer que siga la cámara
         if (heldObject != null)
         {
-            heldObject.transform.position = hand.position;
+            // Posiciona el objeto en la mano
+            heldObject.transform.position = mainCamera.transform.position + mainCamera.transform.forward * 0.5f;
+
+            // Hace que el objeto siga la rotación de la cámara directamente
+            heldObject.transform.rotation = mainCamera.transform.rotation;
         }
     }
 
@@ -153,6 +156,3 @@ public class scr_CharacterMovement : MonoBehaviour
         // Lógica para cambiar de cámara si en un futuro decides implementar algo.
     }
 }
-
-
-
