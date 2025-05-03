@@ -215,6 +215,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8357710434580970826, guid: 70c52760f006dee48afb2e17fa471416, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7446516550023325151}
+    - targetCorrespondingSourceObject: {fileID: 8357710434580970826, guid: 70c52760f006dee48afb2e17fa471416, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4775610087587515835}
     - targetCorrespondingSourceObject: {fileID: 3367045922303656509, guid: 70c52760f006dee48afb2e17fa471416, type: 3}
       insertIndex: -1
       addedObject: {fileID: 6230955769256236934}
@@ -236,6 +239,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a966a9b20f9d46e4086a62ae9a26bbcd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  doorAnimator: {fileID: 0}
+  isOpen: 0
+  playerInRange: 0
+--- !u!65 &4775610087587515835
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871540539192200419}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.01, y: 0.02106713, z: 0.0126239}
+  m_Center: {x: 7.566996e-10, y: -0.0032185304, z: 0}
 --- !u!4 &3211649570188498521 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8698524522580961264, guid: 70c52760f006dee48afb2e17fa471416, type: 3}

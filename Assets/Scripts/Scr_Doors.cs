@@ -1,13 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class Scr_Doors : MonoBehaviour
 {
-    [SerializeField] private Animator doorAnimator;
+    [Header("Referencia al Animator que controla la animación de la puerta")]
+    public Animator doorAnimator;
 
-    private bool isOpen = false;
-    private bool playerInRange = false;
+    [Header("Estado de la puerta")]
+    public bool isOpen = false;
+
+    // Indica si el jugador está dentro del área de interacción
+    public bool playerInRange = false;
 
     void Update()
     {
@@ -15,7 +18,7 @@ public class Scr_Doors : MonoBehaviour
         {
             isOpen = !isOpen;
             doorAnimator.SetBool("isOpen", isOpen);
-            Debug.Log("Puerta " + (isOpen ? "abierta" : "cerrada"));
+            Debug.Log($"Puerta ahora está {(isOpen ? "ABIERTA" : "CERRADA")}");
         }
     }
 
@@ -34,6 +37,20 @@ public class Scr_Doors : MonoBehaviour
         {
             playerInRange = false;
             Debug.Log("Jugador salió del área de la puerta");
+        }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Collider col = GetComponent<Collider>();
+        if (col != null && col.isTrigger)
+        {
+            Gizmos.matrix = transform.localToWorldMatrix;
+            if (col is BoxCollider box)
+                Gizmos.DrawWireCube(box.center, box.size);
+            else if (col is SphereCollider sphere)
+                Gizmos.DrawWireSphere(sphere.center, sphere.radius);
         }
     }
 }
