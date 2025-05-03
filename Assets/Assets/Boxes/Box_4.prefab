@@ -120,12 +120,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickup: {fileID: 0}
   mano: {fileID: 0}
+  animator: {fileID: 0}
+  IDObjeto: 0
   activo: 0
   objetoEnMano: 0
-  distanciaMaxima: 3
-  squareTarget: {fileID: 0}
-  IDObjeto: 0
   TieneElTeclado: 0
+  Comprobante: 0
+  PosicionObjetos: {fileID: 0}
+  pickupCollider: {fileID: 0}
+  pickupRigidbody: {fileID: 0}
+  escalaOriginal: {x: 0, y: 0, z: 0}
+  rotacionOriginal: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1001 &4787467678653971594
 PrefabInstance:
   m_ObjectHideFlags: 0
