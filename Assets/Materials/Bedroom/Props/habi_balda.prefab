@@ -25,7 +25,7 @@ Transform:
   m_GameObject: {fileID: 2359809807638243190}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.2406425, y: 2.359, z: 24.694}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2826026182683545526}
   - component: {fileID: 3793055602417782}
   - component: {fileID: 8900018368895163226}
+  - component: {fileID: 8662234380992164597}
   m_Layer: 0
   m_Name: Balda_DONE
   m_TagString: Untagged
@@ -115,3 +116,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8662234380992164597
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5166999161428969238}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.002951355, y: 0.0015984344, z: 0.011963272}
+  m_Center: {x: -0.000000014901161, y: 0.00079921755, z: -0.0000000037252903}

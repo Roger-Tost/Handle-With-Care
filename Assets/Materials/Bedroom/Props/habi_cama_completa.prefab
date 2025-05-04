@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 393696938620379294}
   - component: {fileID: 4793871149564414772}
   - component: {fileID: 4875575081667927062}
+  - component: {fileID: 2037264660559610158}
   m_Layer: 0
   m_Name: Pillow
   m_TagString: Untagged
@@ -117,6 +118,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2037264660559610158
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5308316390270310984}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.007029552, y: 0.0041037854, z: 0.0015265556}
+  m_Center: {x: 0, y: 0.0000014264376, z: -0.0000104372475}
 --- !u!1 &5381674815571809288
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +232,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4945420675974686611}
   - component: {fileID: 1765182896339699602}
+  - component: {fileID: 6137696850979990056}
   m_Layer: 0
   m_Name: habi_cama_completa
   m_TagString: Untagged
@@ -252,8 +275,29 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 2.23}
-  m_Center: {x: 0, y: 0.45, z: 0}
+  m_Size: {x: 1, y: 0.64221, z: 2.1613455}
+  m_Center: {x: -1.304444e-18, y: 0.3112768, z: 0.003998041}
+--- !u!65 &6137696850979990056
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5758548439711857961}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 0.13}
+  m_Center: {x: 0, y: 0.5, z: 1.02}
 --- !u!1 &9165800460992442256
 GameObject:
   m_ObjectHideFlags: 0
