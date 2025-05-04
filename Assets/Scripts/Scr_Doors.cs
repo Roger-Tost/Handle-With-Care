@@ -18,7 +18,6 @@ public class Scr_Doors : MonoBehaviour
         {
             isOpen = !isOpen;
             doorAnimator.SetBool("isOpen", isOpen);
-            Debug.Log($"Puerta ahora está {(isOpen ? "ABIERTA" : "CERRADA")}");
         }
     }
 
@@ -27,7 +26,6 @@ public class Scr_Doors : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
-            Debug.Log("Jugador entró al área de la puerta");
         }
     }
 
@@ -36,7 +34,6 @@ public class Scr_Doors : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
-            Debug.Log("Jugador salió del área de la puerta");
         }
     }
 
