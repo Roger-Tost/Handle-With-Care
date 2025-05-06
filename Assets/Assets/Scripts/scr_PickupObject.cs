@@ -64,8 +64,6 @@ public class scr_PickupObject : MonoBehaviour
 
         // Buscar componente de posición de entrega en la escena
         PosicionObjetos = FindObjectOfType<Scr_PosicionObjetos>();
-        if (PosicionObjetos == null)
-            Debug.LogError("[Pickup] ERROR: No se encontró Scr_PosicionObjetos en la escena.");
     }
 
     public void Update()
