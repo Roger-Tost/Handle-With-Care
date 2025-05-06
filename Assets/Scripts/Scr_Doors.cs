@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Collider))]
@@ -8,6 +10,7 @@ public class Scr_Doors : MonoBehaviour
 
     [Header("Estado de la puerta")]
     public bool isOpen = false;
+    public bool isLocked;
 
     // Indica si el jugador está dentro del área de interacción
     public bool playerInRange = false;
@@ -16,8 +19,17 @@ public class Scr_Doors : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            isOpen = !isOpen;
-            doorAnimator.SetBool("isOpen", isOpen);
+            if (!isLocked)
+            {
+                isOpen = !isOpen;
+                doorAnimator.SetBool("isOpen", isOpen);
+            }
+
+            else if (isLocked)
+            {
+                doorAnimator.SetTrigger("isLocked");
+
+            }
         }
     }
 
