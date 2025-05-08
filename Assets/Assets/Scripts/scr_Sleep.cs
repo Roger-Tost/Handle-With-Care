@@ -21,7 +21,7 @@ public class scr_Sleep: MonoBehaviour
             fadeImage = FindObjectOfType<Canvas>().GetComponentInChildren<Image>();
             if (fadeImage == null)
             {
-                Debug.LogError("No se encontró ninguna imagen de fundido. Asigna una manualmente.");
+                //Debug.LogError("No se encontró ninguna imagen de fundido. Asigna una manualmente.");
             }
         }
     }

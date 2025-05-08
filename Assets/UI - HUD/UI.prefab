@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2389111769191242712}
   - component: {fileID: 2260852851672688703}
   - component: {fileID: 3961651761353889749}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Messages_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -145,7 +145,7 @@ GameObject:
   - component: {fileID: 5961245762257844614}
   - component: {fileID: 2614741195586776653}
   - component: {fileID: 608037711385691602}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Ayuda
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -278,7 +278,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1290509039071507675}
   - component: {fileID: 1591580210464145240}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: InterfacesPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -348,13 +348,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6831206376315788799}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: PC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6831206376315788799
 RectTransform:
   m_ObjectHideFlags: 0
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 1676037556808308197}
   - component: {fileID: 1384917687652722284}
   - component: {fileID: 1994794047726254835}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ContactList_Divider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -468,7 +468,7 @@ GameObject:
   - component: {fileID: 1885938979589492509}
   - component: {fileID: 6362270011286834100}
   - component: {fileID: 2888147042484663830}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -491,8 +491,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77800006, y: 0.57411116}
   m_AnchorMax: {x: 0.77800006, y: 0.57411116}
-  m_AnchoredPosition: {x: 24, y: 29}
-  m_SizeDelta: {x: 540.59, y: 50}
+  m_AnchoredPosition: {x: -287.4, y: 75.9}
+  m_SizeDelta: {x: 260.0244, y: 31.4279}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6362270011286834100
 CanvasRenderer:
@@ -524,15 +524,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Si, mama no me queria mas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4282269246
+  m_fontColor: {r: 0.24313727, g: 0.24313727, b: 0.24313727, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -549,8 +549,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -602,7 +602,7 @@ GameObject:
   - component: {fileID: 752633244298691772}
   - component: {fileID: 7978136972187057003}
   - component: {fileID: 7058735428771263967}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Juegos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -742,7 +742,7 @@ GameObject:
   - component: {fileID: 870359688333532263}
   - component: {fileID: 1139993788127320803}
   - component: {fileID: 6799889090305635089}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Top_Beige
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -817,7 +817,7 @@ GameObject:
   - component: {fileID: 2895357116162008847}
   - component: {fileID: 3481857820793611977}
   - component: {fileID: 6654798631625496707}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ProfilePicture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 4335976779085586584}
   - component: {fileID: 4776246095804271099}
   - component: {fileID: 7164759306102440885}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Voice
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -967,7 +967,7 @@ GameObject:
   - component: {fileID: 3866544530291963628}
   - component: {fileID: 3322728363106438819}
   - component: {fileID: 578086672253546105}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Player_TopCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1042,7 +1042,7 @@ GameObject:
   - component: {fileID: 5310328312809912306}
   - component: {fileID: 667296786457809779}
   - component: {fileID: 1577201317270337812}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Controles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1178,7 +1178,7 @@ GameObject:
   - component: {fileID: 201299772777240215}
   - component: {fileID: 545036188253280826}
   - component: {fileID: 6722176917629122778}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Claire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1194,7 +1194,7 @@ RectTransform:
   m_GameObject: {fileID: 1497261120682879455}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0495, y: 1.0495, z: 1.0495}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8903013241773206488}
@@ -1314,7 +1314,7 @@ GameObject:
   - component: {fileID: 844979188972533120}
   - component: {fileID: 5645219865652930257}
   - component: {fileID: 2847958961706445011}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Contact_Chat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1389,7 +1389,7 @@ GameObject:
   - component: {fileID: 77956495953681950}
   - component: {fileID: 1984870338749397962}
   - component: {fileID: 3226700874739876081}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Send
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 6560937917133157581}
   - component: {fileID: 6420794690779841870}
   - component: {fileID: 3245014982092240926}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1485,10 +1485,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3071527693203578770}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.77850014, y: 0.57585186}
-  m_AnchorMax: {x: 0.77850014, y: 0.57585186}
-  m_AnchoredPosition: {x: 5, y: 49}
-  m_SizeDelta: {x: 540.59, y: 50}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 227.79045, y: 147.18764}
+  m_SizeDelta: {x: 241.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6420794690779841870
 CanvasRenderer:
@@ -1520,15 +1520,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Esta todo lleno de polvo
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284107083
+  m_fontColor: {r: 0.29411766, g: 0.28627452, b: 0.3529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1545,8 +1545,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1596,7 +1596,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 138534490752607530}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ContactList_Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1637,7 +1637,7 @@ GameObject:
   - component: {fileID: 4310428775890742708}
   - component: {fileID: 1240310173293656924}
   - component: {fileID: 5502867238874690539}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Actividades
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1777,8 +1777,8 @@ GameObject:
   - component: {fileID: 7077139893619848597}
   - component: {fileID: 7806136788308618860}
   - component: {fileID: 376831611010667317}
-  m_Layer: 5
-  m_Name: Button (1)
+  m_Layer: 3
+  m_Name: Answer_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1801,7 +1801,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174.90002, y: -184.3}
+  m_AnchoredPosition: {x: 174.90002, y: -187.48903}
   m_SizeDelta: {x: 856, y: 61.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7077139893619848597
@@ -1825,7 +1825,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.68235296, g: 0.8469727, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1909,7 +1909,7 @@ GameObject:
   - component: {fileID: 7934100018962360242}
   - component: {fileID: 4517768465379957293}
   - component: {fileID: 2227415583456668851}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1932,8 +1932,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6858022, y: 0.56348544}
   m_AnchorMax: {x: 0.6858022, y: 0.56348544}
-  m_AnchoredPosition: {x: -157, y: 3}
-  m_SizeDelta: {x: 592.4, y: 50}
+  m_AnchoredPosition: {x: -400.52502, y: -28.274345}
+  m_SizeDelta: {x: 212.5, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4517768465379957293
 CanvasRenderer:
@@ -1963,17 +1963,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Va bien, muchas cosas que ordenar :0
+  m_text: "Va bien, muchas \ncosas que ordenar :0"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284041804
+  m_fontColor: {r: 0.29803923, g: 0.2901961, b: 0.34901962, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1990,8 +1990,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2043,7 +2043,7 @@ GameObject:
   - component: {fileID: 4704508293518474}
   - component: {fileID: 2949662778703889594}
   - component: {fileID: 6230330994153640583}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2066,7 +2066,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77800006, y: 0.57411116}
   m_AnchorMax: {x: 0.77800006, y: 0.57411116}
-  m_AnchoredPosition: {x: 24, y: 36}
+  m_AnchoredPosition: {x: -165.2, y: 67.76}
   m_SizeDelta: {x: 540.59, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2949662778703889594
@@ -2099,15 +2099,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Si, estoy guardando mis cosas
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4282203453
+  m_fontColor: {r: 0.2392157, g: 0.2392157, b: 0.2392157, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2124,8 +2124,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2177,7 +2177,7 @@ GameObject:
   - component: {fileID: 5526855327706352616}
   - component: {fileID: 5796491264688624593}
   - component: {fileID: 4729838244509624261}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Conctacts_WhiteBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2252,7 +2252,7 @@ GameObject:
   - component: {fileID: 6770594600522033668}
   - component: {fileID: 5759193326887589645}
   - component: {fileID: 5456059760337471753}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Interface_BJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2384,7 +2384,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3071527693203578770}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Interface_Claire
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2426,7 +2426,7 @@ GameObject:
   - component: {fileID: 2879214071536781933}
   - component: {fileID: 5186664570838145035}
   - component: {fileID: 9096146764928187906}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Voz
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2564,7 +2564,7 @@ GameObject:
   - component: {fileID: 5350083740612893336}
   - component: {fileID: 4850637574931612521}
   - component: {fileID: 288085341390086442}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Sam (Yo)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2698,7 +2698,7 @@ GameObject:
   - component: {fileID: 5294375907650574882}
   - component: {fileID: 6953120146638348749}
   - component: {fileID: 2751765698503316924}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Invitar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2834,7 +2834,7 @@ GameObject:
   - component: {fileID: 2126536170946034408}
   - component: {fileID: 987882977658437066}
   - component: {fileID: 53994842254600256}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Interface_MM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2968,7 +2968,7 @@ GameObject:
   - component: {fileID: 7836512166726021198}
   - component: {fileID: 7773029838310824741}
   - component: {fileID: 1062356329833252781}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Interface_C
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3102,7 +3102,7 @@ GameObject:
   - component: {fileID: 3560330924927671067}
   - component: {fileID: 6281344076259548727}
   - component: {fileID: 4493388683391292384}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ExitButtons_Fake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3177,7 +3177,7 @@ GameObject:
   - component: {fileID: 3644916865207074130}
   - component: {fileID: 7273190169399129369}
   - component: {fileID: 1633810054736519164}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Chat_BlueBoarder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3252,7 +3252,7 @@ GameObject:
   - component: {fileID: 8130538552630951289}
   - component: {fileID: 8622402485954877098}
   - component: {fileID: 9118244667631414763}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Player_BottomCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3327,7 +3327,7 @@ GameObject:
   - component: {fileID: 2674288003355548917}
   - component: {fileID: 2566218340082637891}
   - component: {fileID: 2503957699136788436}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Top_LightBlue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3402,7 +3402,7 @@ GameObject:
   - component: {fileID: 4344586854064588307}
   - component: {fileID: 348117991182525629}
   - component: {fileID: 1216392281746020548}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ProfilePic_Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3477,7 +3477,7 @@ GameObject:
   - component: {fileID: 2505162814052514103}
   - component: {fileID: 4008103411046731137}
   - component: {fileID: 377558342931782977}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3533,15 +3533,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4284835173
+  m_fontColor: {r: 0.39607844, g: 0.39607844, b: 0.39607844, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3558,8 +3558,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.5
-  m_fontSizeBase: 44.5
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3611,7 +3611,7 @@ GameObject:
   - component: {fileID: 5409146544200776015}
   - component: {fileID: 4170275074832908872}
   - component: {fileID: 2447462217098064027}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: CameraFilter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3683,7 +3683,7 @@ GameObject:
   - component: {fileID: 7982093083055214486}
   - component: {fileID: 1284805412517360400}
   - component: {fileID: 8375057009102859156}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3706,8 +3706,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6858022, y: 0.56348544}
   m_AnchorMax: {x: 0.6858022, y: 0.56348544}
-  m_AnchoredPosition: {x: -71, y: 3}
-  m_SizeDelta: {x: 373.1, y: 50}
+  m_AnchoredPosition: {x: -414.54294, y: -28.274345}
+  m_SizeDelta: {x: 181, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1284805412517360400
 CanvasRenderer:
@@ -3739,15 +3739,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: "Hey ya estoy aqu\xED!"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284041547
+  m_fontColor: {r: 0.29411766, g: 0.28627452, b: 0.34901962, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3764,8 +3764,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3817,7 +3817,7 @@ GameObject:
   - component: {fileID: 8743517023109622153}
   - component: {fileID: 5527707888829260038}
   - component: {fileID: 8065497099637277044}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Contact_Chat_BottomCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3890,7 +3890,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8577992970369764435}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3928,7 +3928,7 @@ GameObject:
   - component: {fileID: 4877689989224481175}
   - component: {fileID: 2849998519028134902}
   - component: {fileID: 5925832715337859676}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Herramientas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4062,7 +4062,7 @@ GameObject:
   - component: {fileID: 7717433995579478068}
   - component: {fileID: 3500956276695355956}
   - component: {fileID: 7750446220669483251}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Chat_WhiteBoarder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4137,7 +4137,7 @@ GameObject:
   - component: {fileID: 6274851493102233957}
   - component: {fileID: 5189925283549211794}
   - component: {fileID: 4116369352039769437}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Message_MM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4271,7 +4271,7 @@ GameObject:
   - component: {fileID: 4506016690455711441}
   - component: {fileID: 939685245253665932}
   - component: {fileID: 487962865751420715}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4327,15 +4327,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 2
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4285950828
+  m_fontColor: {r: 0.42352945, g: 0.41960788, b: 0.46274513, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4352,8 +4352,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.5
-  m_fontSizeBase: 44.5
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4406,8 +4406,8 @@ GameObject:
   - component: {fileID: 8129937292868159660}
   - component: {fileID: 5499277463878510775}
   - component: {fileID: 7044803395513024800}
-  m_Layer: 5
-  m_Name: Button (2)
+  m_Layer: 3
+  m_Name: Answer_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4430,7 +4430,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174.80002, y: -230.6}
+  m_AnchoredPosition: {x: 174.80002, y: -235.67549}
   m_SizeDelta: {x: 856, y: 61.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8129937292868159660
@@ -4454,7 +4454,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.68235296, g: 1, b: 0.92281693, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4492,7 +4492,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.6156863}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4536,7 +4536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8349988799306976129}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Buttons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4574,7 +4574,7 @@ GameObject:
   - component: {fileID: 2212264043410941238}
   - component: {fileID: 5317046848859447944}
   - component: {fileID: 3063192163319036984}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Fundido a negro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4647,7 +4647,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2747388507128551327}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Icons
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4688,7 +4688,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 152729403710297416}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Contact_List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4727,7 +4727,7 @@ GameObject:
   - component: {fileID: 8271707405837569322}
   - component: {fileID: 4408347460981551955}
   - component: {fileID: 6970810742077393295}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: ProfilePic_Boarder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4802,7 +4802,7 @@ GameObject:
   - component: {fileID: 7977979199876940892}
   - component: {fileID: 7991605893886392537}
   - component: {fileID: 5740044089995868733}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Games
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,7 +4875,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1597271479359844658}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Main_ChatWindow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4924,7 +4924,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7331998064447451528}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Interface_MM
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4966,7 +4966,7 @@ GameObject:
   - component: {fileID: 4043904326442290677}
   - component: {fileID: 6316839138196627582}
   - component: {fileID: 2955121889205038787}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Video
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5041,7 +5041,7 @@ GameObject:
   - component: {fileID: 8266890926817197065}
   - component: {fileID: 7400877210684873213}
   - component: {fileID: 3172861507835429831}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5064,8 +5064,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77850014, y: 0.57585186}
   m_AnchorMax: {x: 0.77850014, y: 0.57585186}
-  m_AnchoredPosition: {x: 5, y: 49}
-  m_SizeDelta: {x: 540.59, y: 50}
+  m_AnchoredPosition: {x: -302.5492, y: 65.267685}
+  m_SizeDelta: {x: 250.7, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7400877210684873213
 CanvasRenderer:
@@ -5095,17 +5095,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Un poco sucia pero mejor que estar con mam\xE1"
+  m_text: Un poco sucia pero mejor que estar con mama
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284172876
+  m_fontColor: {r: 0.29803923, g: 0.2901961, b: 0.35686275, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5122,8 +5122,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5175,7 +5175,7 @@ GameObject:
   - component: {fileID: 8589252440948595110}
   - component: {fileID: 7132268669300318757}
   - component: {fileID: 1309040808052684455}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BigJoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5191,14 +5191,14 @@ RectTransform:
   m_GameObject: {fileID: 5817756509083791619}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.0212, y: 1.0212, z: 1.0212}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7171270470498244413}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -5.02496, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7132268669300318757
@@ -5309,7 +5309,7 @@ GameObject:
   - component: {fileID: 1538318542213977644}
   - component: {fileID: 1745765138640276813}
   - component: {fileID: 4164519948281780023}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Enviar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5443,7 +5443,7 @@ GameObject:
   - component: {fileID: 651663484704075878}
   - component: {fileID: 1249188065614531157}
   - component: {fileID: 874865416686098068}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Video
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5580,7 +5580,7 @@ GameObject:
   - component: {fileID: 4163762622143693435}
   - component: {fileID: 4408289927797219991}
   - component: {fileID: 3548084189174948035}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Enviar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5715,13 +5715,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1612304660423029563}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Interface_BigJoe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1612304660423029563
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5757,7 +5757,7 @@ GameObject:
   - component: {fileID: 8787975325306500770}
   - component: {fileID: 5800944857632838175}
   - component: {fileID: 5816381510759625528}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Contact_Chat_TopCap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5832,7 +5832,7 @@ GameObject:
   - component: {fileID: 6275185927182922047}
   - component: {fileID: 1728533601363525071}
   - component: {fileID: 285650674365452750}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5855,8 +5855,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.6858022, y: 0.56348544}
   m_AnchorMax: {x: 0.6858022, y: 0.56348544}
-  m_AnchoredPosition: {x: -61.9, y: 3}
-  m_SizeDelta: {x: 373.1, y: 50}
+  m_AnchoredPosition: {x: -416.29517, y: -17.76094}
+  m_SizeDelta: {x: 180.9, y: 31.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1728533601363525071
 CanvasRenderer:
@@ -5890,15 +5890,15 @@ MonoBehaviour:
 
 '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4283976011
+  m_fontColor: {r: 0.29411766, g: 0.28627452, b: 0.34509805, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -5915,8 +5915,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -5968,7 +5968,7 @@ GameObject:
   - component: {fileID: 1032622352422786780}
   - component: {fileID: 5995395992648134860}
   - component: {fileID: 5156042255245193223}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Contactos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6102,7 +6102,7 @@ GameObject:
   - component: {fileID: 2720464856860809760}
   - component: {fileID: 2101742587696466533}
   - component: {fileID: 5898367873562621973}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: WindowsBG
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6178,7 +6178,7 @@ GameObject:
   - component: {fileID: 5545241491547035465}
   - component: {fileID: 5615000323008165267}
   - component: {fileID: 4267612197548528607}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Button_SalirDelPC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6309,7 +6309,7 @@ GameObject:
   - component: {fileID: 7195910349982056755}
   - component: {fileID: 4211564790472275441}
   - component: {fileID: 9178360785762870535}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Activities
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6382,8 +6382,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6927766609027942341}
-  m_Layer: 5
-  m_Name: BotonesAbajo_CAMBIAR
+  m_Layer: 3
+  m_Name: Reply_Options
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6422,7 +6422,7 @@ GameObject:
   - component: {fileID: 3177550888012695923}
   - component: {fileID: 8310293933941128843}
   - component: {fileID: 8987747452177995909}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Send_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6497,7 +6497,7 @@ GameObject:
   - component: {fileID: 8870141879052066424}
   - component: {fileID: 205497492496306655}
   - component: {fileID: 4740907019991041679}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6520,8 +6520,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77800006, y: 0.57411116}
   m_AnchorMax: {x: 0.77800006, y: 0.57411116}
-  m_AnchoredPosition: {x: 24, y: 29}
-  m_SizeDelta: {x: 540.59, y: 50}
+  m_AnchoredPosition: {x: -287.4, y: 81.959946}
+  m_SizeDelta: {x: 284.1, y: 21.6}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &205497492496306655
 CanvasRenderer:
@@ -6553,15 +6553,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: Ya me mude, contesto luego
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284107339
+  m_fontColor: {r: 0.29411766, g: 0.2901961, b: 0.3529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6578,8 +6578,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6629,7 +6629,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4561077285253986208}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: UI_Texts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6680,7 +6680,7 @@ GameObject:
   - component: {fileID: 6230913835576737122}
   - component: {fileID: 453026602623180757}
   - component: {fileID: 7528619970156843705}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Butterfly_Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6755,7 +6755,7 @@ GameObject:
   - component: {fileID: 4869400100143801405}
   - component: {fileID: 7813513822454875876}
   - component: {fileID: 2623095261991739587}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6811,15 +6811,15 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4284835173
+  m_fontColor: {r: 0.3962264, g: 0.3962264, b: 0.3962264, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6836,8 +6836,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 44.5
-  m_fontSizeBase: 44.5
+  m_fontSize: 40
+  m_fontSizeBase: 40
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -6887,7 +6887,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 147829531835275897}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Player_Chat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6927,7 +6927,7 @@ GameObject:
   - component: {fileID: 7392956077568811582}
   - component: {fileID: 2563461311172493879}
   - component: {fileID: 2422997861954792879}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Editar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7061,7 +7061,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7682617040477106606}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Contact_Chat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7101,7 +7101,7 @@ GameObject:
   - component: {fileID: 3495574161429812015}
   - component: {fileID: 8831228452175027411}
   - component: {fileID: 6927127312713459990}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Archivo
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7238,8 +7238,8 @@ GameObject:
   - component: {fileID: 4998003122997801123}
   - component: {fileID: 8270098097414643837}
   - component: {fileID: 4339408427453187445}
-  m_Layer: 5
-  m_Name: Button
+  m_Layer: 3
+  m_Name: Answer_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7286,7 +7286,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.70536536, g: 0.6839622, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7324,7 +7324,7 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 1
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 0.101960786}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -7373,7 +7373,7 @@ GameObject:
   - component: {fileID: 1488034560007191765}
   - component: {fileID: 1235311334258701068}
   - component: {fileID: 3601406764573563809}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7415,7 +7415,7 @@ Canvas:
   m_RenderMode: 0
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
-  m_PixelPerfect: 0
+  m_PixelPerfect: 1
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
@@ -7504,7 +7504,7 @@ GameObject:
   - component: {fileID: 2882907894690399522}
   - component: {fileID: 5110709768398044366}
   - component: {fileID: 6803616122324360170}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: OpcionB
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7527,8 +7527,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.77850014, y: 0.57585186}
   m_AnchorMax: {x: 0.77850014, y: 0.57585186}
-  m_AnchoredPosition: {x: 5, y: 49}
-  m_SizeDelta: {x: 540.59, y: 50}
+  m_AnchoredPosition: {x: -302.5492, y: 66.1438}
+  m_SizeDelta: {x: 251.3, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5110709768398044366
 CanvasRenderer:
@@ -7558,17 +7558,17 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Si, no se quien estuviera aqu\xED pero no limpio nada"
+  m_text: "Si, no se quien estuviera \naqui pero no limpio nada"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
+  m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4284107083
+  m_fontColor: {r: 0.29411766, g: 0.28627452, b: 0.3529412, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -7585,8 +7585,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 22
+  m_fontSizeBase: 22
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -7638,7 +7638,7 @@ GameObject:
   - component: {fileID: 2925254290402894436}
   - component: {fileID: 7778045939281696801}
   - component: {fileID: 378470563830267894}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Invite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7713,7 +7713,7 @@ GameObject:
   - component: {fileID: 4016941656767544818}
   - component: {fileID: 618484916343318822}
   - component: {fileID: 7403206404866391688}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Aa Mama
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7847,7 +7847,7 @@ GameObject:
   - component: {fileID: 5742494066283677843}
   - component: {fileID: 4288102977285929047}
   - component: {fileID: 425301614398999983}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Messages_BJ
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7982,7 +7982,7 @@ GameObject:
   - component: {fileID: 3441797263710599443}
   - component: {fileID: 8426085785240185855}
   - component: {fileID: 7964343955206671683}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: BigJoe_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8115,7 +8115,7 @@ GameObject:
   - component: {fileID: 6059334494852562429}
   - component: {fileID: 1853046666130817946}
   - component: {fileID: 1345533119269406275}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Claire_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8139,7 +8139,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 470, y: -172}
+  m_AnchoredPosition: {x: 470, y: -169.09059}
   m_SizeDelta: {x: 228.4, y: 61.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6059334494852562429
@@ -8248,7 +8248,7 @@ GameObject:
   - component: {fileID: 5973793139390470407}
   - component: {fileID: 5737036439317725646}
   - component: {fileID: 4495807245846673140}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Mum_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8264,7 +8264,7 @@ RectTransform:
   m_GameObject: {fileID: 9020140970742517774}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.33709, y: 0.33709, z: 0.33709}
+  m_LocalScale: {x: 0.3156376, y: 0.3156376, z: 0.3156376}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4016941656767544818}
@@ -8272,7 +8272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 465.9, y: -143.2}
+  m_AnchoredPosition: {x: 465.2182, y: -143.6832}
   m_SizeDelta: {x: 163.8, y: 61.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5973793139390470407
@@ -8380,7 +8380,7 @@ GameObject:
   - component: {fileID: 5748796060891222364}
   - component: {fileID: 6929964249753287630}
   - component: {fileID: 3826251521673295986}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Player_Chat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8455,7 +8455,7 @@ GameObject:
   - component: {fileID: 8566739122748052849}
   - component: {fileID: 1776158544870140266}
   - component: {fileID: 6093441036438043368}
-  m_Layer: 5
+  m_Layer: 3
   m_Name: Acciones
   m_TagString: Untagged
   m_Icon: {fileID: 0}

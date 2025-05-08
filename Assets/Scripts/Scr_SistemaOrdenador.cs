@@ -36,10 +36,10 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public Button[] BotonesTexto;
 
-    
-    
-    
-    
+    public GameObject pauseMenuUI;
+
+
+
 
     public GameObject PC;
     void Start()
@@ -127,16 +127,16 @@ public class Scr_SistemaOrdenador : MonoBehaviour
         Time.timeScale = 0;
 
     }
-    
+
     public void DesactivarPC()
     {
         PC.SetActive(false);
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        Time.timeScale = 1;
+
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            Time.timeScale = 1;
 
     }
-
 
     public void Opcion(int Respuesta)
     {
