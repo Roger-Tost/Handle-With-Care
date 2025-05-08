@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7773832021707567592}
   - component: {fileID: 5001572963600161741}
   - component: {fileID: 2275960538687980774}
+  - component: {fileID: 8849721057112533404}
   m_Layer: 0
   m_Name: Cuadro_PosadoDONE
   m_TagString: Untagged
@@ -83,3 +84,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &8849721057112533404
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5132106647726391131}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.009401702, y: 0.018799111, z: 0.01481314}
+  m_Center: {x: -0.001162033, y: 0.009369375, z: -0.00039918977}
