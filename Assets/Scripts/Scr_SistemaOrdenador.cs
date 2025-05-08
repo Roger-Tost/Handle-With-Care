@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using TMPro.Examples;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class Scr_SistemaOrdenador : MonoBehaviour
 {
@@ -32,6 +34,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
     public GameObject P3B;
     public GameObject P3C;
 
+    public Button[] BotonesTexto;
 
     
     
@@ -46,6 +49,10 @@ public class Scr_SistemaOrdenador : MonoBehaviour
         InterfazPersona3.SetActive(false);
         PC.SetActive(false);
 
+        BotonesTexto[0].gameObject.SetActive(false);
+        BotonesTexto[1].gameObject.SetActive(false);
+        BotonesTexto[2].gameObject.SetActive(false);
+
 
 
     }
@@ -53,7 +60,25 @@ public class Scr_SistemaOrdenador : MonoBehaviour
     
     void Update()
     {
-        
+        if (InterfazID == 1)
+        {
+            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje1 // Opcion 1";
+            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje1 // Opcion 2";
+            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje1 // Opcion 3";
+
+        }
+        else if (InterfazID == 2)
+        {
+            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje2 // Opcion 1";
+            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje2 // Opcion 2";
+            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje2 // Opcion 3";
+        }
+        else if (InterfazID == 3)
+        {
+            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje3 // Opcion 1";
+            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje3 // Opcion 2";
+            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje3 // Opcion 3";
+        }
 
 
 
@@ -68,7 +93,9 @@ public class Scr_SistemaOrdenador : MonoBehaviour
         InterfazPersona2.SetActive(false);
         InterfazPersona3.SetActive(false);
         InterfazID = 1;
-
+        BotonesTexto[0].gameObject.SetActive(true);
+        BotonesTexto[1].gameObject.SetActive(true);
+        BotonesTexto[2].gameObject.SetActive(true);
 
     }
     public void ActivarInterfaz2()
@@ -77,6 +104,9 @@ public class Scr_SistemaOrdenador : MonoBehaviour
         InterfazPersona2.SetActive(true);
         InterfazPersona3.SetActive(false);
         InterfazID = 2;
+        BotonesTexto[0].gameObject.SetActive(true);
+        BotonesTexto[1].gameObject.SetActive(true);
+        BotonesTexto[2].gameObject.SetActive(true);
     }
     public void ActivarInterfaz3()
     {
@@ -84,6 +114,9 @@ public class Scr_SistemaOrdenador : MonoBehaviour
         InterfazPersona2.SetActive(false);
         InterfazPersona3.SetActive(true);
         InterfazID = 3;
+        BotonesTexto[0].gameObject.SetActive(true);
+        BotonesTexto[1].gameObject.SetActive(true);
+        BotonesTexto[2].gameObject.SetActive(true);
     }
 
     public void ActivarPC()
@@ -107,6 +140,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void Opcion(int Respuesta)
     {
+        
         if (InterfazID == 1 && PuedeDarRespuesta1)
         {
             
@@ -114,18 +148,23 @@ public class Scr_SistemaOrdenador : MonoBehaviour
             {
                 P1A.SetActive(true);
                 PuedeDarRespuesta1 = false;
+                
+
+
             }
 
             else if (Respuesta == 2)
             {
                 P1B.SetActive(true);
                 PuedeDarRespuesta1 = false;
+
             }
 
             else if (Respuesta == 3)
             { 
                 P1C.SetActive(true);
                 PuedeDarRespuesta1 = false;
+
             }
             
         }
@@ -136,16 +175,19 @@ public class Scr_SistemaOrdenador : MonoBehaviour
             { 
                 P2A.SetActive(true);
                 PuedeDarRespuesta2 = false;
+                
             }
             else if (Respuesta == 2)
             {
                 P2B.SetActive(true);
                 PuedeDarRespuesta2 = false;
+               
             }
             else if (Respuesta == 3)
             {
                 P2C.SetActive(true);
                 PuedeDarRespuesta2 = false;
+                
             }
 
         }
@@ -156,16 +198,19 @@ public class Scr_SistemaOrdenador : MonoBehaviour
             {
                 P3A.SetActive(true);
                 PuedeDarRespuesta3 = false;
+                
             }
             else if (Respuesta == 2)
             {
                 P3B.SetActive(true);
                 PuedeDarRespuesta3 = false;
+
             }
             else if (Respuesta == 3)
             {
                 P3C.SetActive(true);
                 PuedeDarRespuesta3 = false;
+               
             }
 
         }
