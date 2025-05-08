@@ -62,22 +62,22 @@ public class Scr_SistemaOrdenador : MonoBehaviour
     {
         if (InterfazID == 1)
         {
-            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje1 // Opcion 1";
-            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje1 // Opcion 2";
-            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje1 // Opcion 3";
+            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Hey ya estoy aquí!";
+            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Va bien, muchas cosas que ordenar :0";
+            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Ya lo conecte lol";
 
         }
         else if (InterfazID == 2)
         {
-            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje2 // Opcion 1";
-            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje2 // Opcion 2";
-            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje2 // Opcion 3";
+            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Esta todo lleno de polvo";
+            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Si, no se quien estuviera aqui pero no limpio nada";
+            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Un poco sucia pero mejor que estar con mama";
         }
         else if (InterfazID == 3)
         {
-            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje3 // Opcion 1";
-            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje3 // Opcion 2";
-            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Personaje3 // Opcion 3";
+            BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Si, mama no me queria mas";
+            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Ya me mude, contesto luego";
+            BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Si, estoy guardando mis cosas";
         }
 
 
