@@ -15,26 +15,32 @@ public class scr_Sleep: MonoBehaviour
     void Start()
     {
         CharacterScript = FindObjectOfType<scr_CharacterMovement>();
-        // Si la imagen no está asignada manualmente, intenta buscarla automáticamente
+
         if (fadeImage == null)
         {
             fadeImage = FindObjectOfType<Canvas>().GetComponentInChildren<Image>();
             if (fadeImage == null)
             {
                 //Debug.LogError("No se encontró ninguna imagen de fundido. Asigna una manualmente.");
+                return;
             }
         }
+
+        // 1) Al iniciar el juego, la imagen queda desactivada:
+        fadeImage.gameObject.SetActive(false);
     }
 
     void Update()
     {
-        if (activo && Input.GetKeyDown(KeyCode.E)) // Presionar 'E' dentro del trigger
+        if (activo && Input.GetKeyDown(KeyCode.E))
         {
+            // 2) Al pulsar E, primero activamos la imagen...
+            fadeImage.gameObject.SetActive(true);
+
+            // ...y lanzamos las corrutinas de dormir y fundido:
             StartCoroutine(Dormir(4));
-            StartCoroutine(FadeInAndOut()); // Iniciar el fundido completo
+            StartCoroutine(FadeInAndOut());
             CharacterScript.CanMove = false;
-            
-            
         }
     }
 
