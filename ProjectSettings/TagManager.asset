@@ -8,6 +8,8 @@ TagManager:
   - Chair
   - Caja
   - Comprobante
+  - Carne_Podrida
+  - Papelera
   layers:
   - Default
   - TransparentFX
