@@ -5065,7 +5065,7 @@ AudioSource:
   Priority: 195
   DopplerLevel: 1
   MinDistance: 0.74
-  MaxDistance: 2.56
+  MaxDistance: 1.24
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -5149,7 +5149,7 @@ Transform:
   m_GameObject: {fileID: 915922072}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.139, y: 1.75, z: 18.751}
+  m_LocalPosition: {x: -5.139, y: 1.75, z: 18.72}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
