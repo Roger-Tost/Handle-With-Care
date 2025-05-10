@@ -5,6 +5,9 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class Scr_Doors : MonoBehaviour
 {
+    [SerializeField] private AudioClip OpenDoorClip;
+
+
     [Header("Referencia al Animator que controla la animación de la puerta")]
     public Animator doorAnimator;
 
@@ -23,6 +26,10 @@ public class Scr_Doors : MonoBehaviour
             {
                 isOpen = !isOpen;
                 doorAnimator.SetBool("isOpen", isOpen);
+
+                // Opening Door Sound
+                Scr_SoundManager.instance.PlaySoundFXClip(OpenDoorClip, transform, 1f);
+
             }
 
             else if (isLocked)

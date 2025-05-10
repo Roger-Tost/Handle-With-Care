@@ -7,7 +7,7 @@ public class Scr_PC : MonoBehaviour
 {
     public Scr_SistemaOrdenador PCinterfaz;
     public bool IsOnPC = false;
-
+    [SerializeField] private AudioClip NotificationSoundClip;
     private void Start()
     {
 
@@ -29,7 +29,8 @@ public class Scr_PC : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IsOnPC = true;
-
+            // PC NotifSound
+            Scr_SoundManager.instance.PlaySoundFXClip(NotificationSoundClip, transform, 1f);
         }
     }
 
@@ -38,6 +39,8 @@ public class Scr_PC : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             IsOnPC = false;
+
+            
         }
     }
 

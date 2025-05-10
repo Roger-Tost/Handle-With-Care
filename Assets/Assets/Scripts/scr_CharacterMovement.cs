@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class scr_CharacterMovement : MonoBehaviour
 {
+    [SerializeField] private AudioClip[] FootstepsSoundClips;
+
+
     // Componentes del personaje
     private CharacterController controller;
     public GameObject mainCamera;
@@ -43,6 +46,9 @@ public class scr_CharacterMovement : MonoBehaviour
     void HandleMovement()
     {
         if (CanMove == true)
+            // Player Footsteps
+            
+            //Scr_SoundManager.instance.PlayRandomSoundFXClip(FootstepsSoundClips, transform, 1f);
         {
             // Obtener inputs de movimiento
             float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -69,12 +75,16 @@ public class scr_CharacterMovement : MonoBehaviour
 
             // Mover al personaje
             controller.Move(velocity * Time.deltaTime);
+           
 
             // Rotar el modelo del personaje hacia la dirección del movimiento
             if (moveDirection.magnitude > 0)
             {
                 characterModel.transform.rotation = Quaternion.LookRotation(moveDirection);
             }
+
+           
+
         }
     }
 

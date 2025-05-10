@@ -161,7 +161,7 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Standalone: com.DefaultCompany.Handle-With-Care
+    Standalone: com.SisterKiller.Handle-With-Care
   buildNumber:
     Standalone: 0
     VisionOS: 0

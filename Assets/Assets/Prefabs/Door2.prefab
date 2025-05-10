@@ -14,15 +14,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.268
+      value: -0.7053
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.038
+      value: -0.60099983
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.391
+      value: -5.6968994
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -30,15 +30,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 3211649570188498521, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -60,12 +60,21 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 925767f4a2427bd48a1813a0abfb1218, type: 2}
+    - target: {fileID: 7446516550023325151, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
+      propertyPath: OpenDoorClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 339285213131d674cb9420eb85ab32d9, type: 3}
+    - target: {fileID: 7446516550023325151, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
+      propertyPath: doorAnimator
+      value: 
+      objectReference: {fileID: 6714723143439126986}
     - target: {fileID: 8819758441397883607, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 925767f4a2427bd48a1813a0abfb1218, type: 2}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 3887252984185484421, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 2871540539192200419, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
@@ -98,3 +107,8 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.01, y: 0.02106713, z: 0.0126239}
   m_Center: {x: 7.566996e-10, y: -0.0032185304, z: 0}
+--- !u!95 &6714723143439126986 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8846793186908901171, guid: 2c366e0e34ee04b4f81c7701751e803c, type: 3}
+  m_PrefabInstance: {fileID: 2875938244355530489}
+  m_PrefabAsset: {fileID: 0}
