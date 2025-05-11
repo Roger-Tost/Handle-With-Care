@@ -7,7 +7,6 @@ public class Scr_Doors : MonoBehaviour
 {
     [SerializeField] private AudioClip OpenDoorClip;
 
-
     [Header("Referencia al Animator que controla la animación de la puerta")]
     public Animator doorAnimator;
 
@@ -15,8 +14,17 @@ public class Scr_Doors : MonoBehaviour
     public bool isOpen = false;
     public bool isLocked;
 
+    [Header("UI")]
+    [SerializeField] private GameObject interactText;
+
     // Indica si el jugador está dentro del área de interacción
     public bool playerInRange = false;
+
+    private void Start()
+    {
+        if (interactText != null)
+            interactText.SetActive(false);
+    }
 
     void Update()
     {
@@ -27,16 +35,16 @@ public class Scr_Doors : MonoBehaviour
                 isOpen = !isOpen;
                 doorAnimator.SetBool("isOpen", isOpen);
 
-                // Opening Door Sound
                 Scr_SoundManager.instance.PlaySoundFXClip(OpenDoorClip, transform, 1f);
-
             }
-
-            else if (isLocked)
+            else
             {
                 doorAnimator.SetTrigger("isLocked");
-
             }
+
+            // Hide prompt after interaction
+            if (interactText != null)
+                interactText.SetActive(false);
         }
     }
 
@@ -45,6 +53,9 @@ public class Scr_Doors : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = true;
+
+            if (!isLocked && interactText != null)
+                interactText.SetActive(true);
         }
     }
 
@@ -53,6 +64,9 @@ public class Scr_Doors : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             playerInRange = false;
+
+            if (interactText != null)
+                interactText.SetActive(false);
         }
     }
 

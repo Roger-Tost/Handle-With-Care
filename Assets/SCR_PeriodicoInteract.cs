@@ -12,32 +12,20 @@ public class SCR_PeriodicoInteract : MonoBehaviour
     [Header("UI")]
     [Tooltip("GameObject de la imagen en el Canvas (debe estar desactivado al inicio)")]
     [SerializeField] private GameObject pauseImage;
-
-    [Tooltip("Texto para mostrar cuando el jugador puede interactuar")]
-    [SerializeField] private GameObject interactionText;
+    [Tooltip("UI Text que muestra el mensaje de interacción (debe estar desactivado al inicio)")]
+    [SerializeField] private GameObject interactText;  // UI element showing [E] to interact
 
     private bool isPlayerInRange = false;
     private bool isPaused = false;
-
-    private void Start()
-    {
-        // Ensure interaction text is hidden at the start
-        if (interactionText != null)
-        {
-            interactionText.SetActive(false);
-        }
-    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(playerTag))
         {
             isPlayerInRange = true;
-            // Show interaction text when player is within range
-            if (interactionText != null)
-            {
-                interactionText.SetActive(true);
-            }
+            // Show interaction prompt when player enters the range
+            if (interactText != null)
+                interactText.SetActive(true);  // Show the UI text
         }
     }
 
@@ -46,11 +34,9 @@ public class SCR_PeriodicoInteract : MonoBehaviour
         if (other.CompareTag(playerTag))
         {
             isPlayerInRange = false;
-            // Hide interaction text when player exits the range
-            if (interactionText != null)
-            {
-                interactionText.SetActive(false);
-            }
+            // Hide interaction prompt when player leaves the range
+            if (interactText != null)
+                interactText.SetActive(false);  // Hide the UI text
         }
     }
 
@@ -59,6 +45,9 @@ public class SCR_PeriodicoInteract : MonoBehaviour
         if (isPlayerInRange && Input.GetKeyDown(interactKey))
         {
             TogglePause();
+            // Hide interaction prompt once player interacts with the object
+            if (interactText != null)
+                interactText.SetActive(false);  // Hide the UI text once interacted
         }
     }
 
@@ -69,7 +58,8 @@ public class SCR_PeriodicoInteract : MonoBehaviour
             // Pausar el juego
             Time.timeScale = 0f;
             // Mostrar la imagen
-            pauseImage.SetActive(true);
+            if (pauseImage != null)
+                pauseImage.SetActive(true);
             isPaused = true;
         }
         else
@@ -77,7 +67,8 @@ public class SCR_PeriodicoInteract : MonoBehaviour
             // Reanudar el juego
             Time.timeScale = 1f;
             // Ocultar la imagen
-            pauseImage.SetActive(false);
+            if (pauseImage != null)
+                pauseImage.SetActive(false);
             isPaused = false;
         }
     }
