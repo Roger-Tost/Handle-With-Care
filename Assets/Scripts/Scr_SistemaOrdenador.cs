@@ -40,6 +40,10 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public GameObject PC;
 
+    // Sound Manager and Mouse Click Sound
+    public Scr_SoundManager soundManager;
+    public AudioClip mouseClickSound;
+
     void Start()
     {
         InterfazPersona1.SetActive(false);
@@ -63,7 +67,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
         else if (InterfazID == 2)
         {
             BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Esta todo lleno de polvo";
-            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Si, no se quien estuviera aqui pero no limpio nada";
+            BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Si, parece que nadie ha limpiado nada";
             BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Un poco sucia pero mejor que estar con mama";
         }
         else if (InterfazID == 3)
@@ -76,6 +80,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void ActivarInterfaz1()
     {
+        PlaySound(); // Play the same sound for interface selection
         InterfazPersona1.SetActive(true);
         InterfazPersona2.SetActive(false);
         InterfazPersona3.SetActive(false);
@@ -87,6 +92,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void ActivarInterfaz2()
     {
+        PlaySound(); // Play the same sound for interface selection
         InterfazPersona1.SetActive(false);
         InterfazPersona2.SetActive(true);
         InterfazPersona3.SetActive(false);
@@ -98,6 +104,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void ActivarInterfaz3()
     {
+        PlaySound(); // Play the same sound for interface selection
         InterfazPersona1.SetActive(false);
         InterfazPersona2.SetActive(false);
         InterfazPersona3.SetActive(true);
@@ -109,6 +116,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void ActivarPC()
     {
+        PlaySound(); // Play the same sound when activating PC
         PC.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -117,6 +125,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void DesactivarPC()
     {
+        PlaySound(); // Play the same sound when deactivating PC
         PC.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -186,6 +195,16 @@ public class Scr_SistemaOrdenador : MonoBehaviour
     // This method is called by the Exit Button in the UI
     public void OnExitButtonPressed()
     {
+        PlaySound(); // Play the same sound when clicking exit
         DesactivarPC(); // Calls the function to deactivate the PC interface
+    }
+
+    // Common method to play the sound effect
+    private void PlaySound()
+    {
+        if (soundManager != null && mouseClickSound != null)
+        {
+            soundManager.PlaySoundFXClip(mouseClickSound, transform, 0.7f);
+        }
     }
 }

@@ -1603,7 +1603,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8021685538023817875, guid: 4945e9de8ee42b6428b3d9079e85d9b2, type: 3}
       propertyPath: displayTime
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8021685538023817875, guid: 4945e9de8ee42b6428b3d9079e85d9b2, type: 3}
       propertyPath: dialogueText
@@ -17029,6 +17029,8 @@ MonoBehaviour:
   - {fileID: 7044803395331646649}
   pauseMenuUI: {fileID: 0}
   PC: {fileID: 254430486605077875}
+  soundManager: {fileID: 364255380}
+  mouseClickSound: {fileID: 8300000, guid: fb8255993a776354f8b4885b84b9c77a, type: 3}
 --- !u!224 &1597271479545451691
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23843,7 +23845,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Si, no se quien estuviera \naqui pero no limpio nada"
+  m_text: Si, parece que nadie ha limpiado nada
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
   m_sharedMaterial: {fileID: -3736702412704457731, guid: 4977889b9ba3c154cb37ef4ec9947e47, type: 2}
