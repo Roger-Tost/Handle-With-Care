@@ -134,6 +134,8 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void Opcion(int Respuesta)
     {
+
+        PlaySound(); // Play the same sound for interface selection
         if (InterfazID == 1 && PuedeDarRespuesta1)
         {
             if (Respuesta == 1)

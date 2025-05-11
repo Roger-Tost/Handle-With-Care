@@ -3,7 +3,22 @@ guid: 1c2ade02b4fe9d54ba6e13245dea8add
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - InterfazPersona1: {instanceID: 0}
+  - InterfazPersona2: {instanceID: 0}
+  - InterfazPersona3: {instanceID: 0}
+  - P1A: {instanceID: 0}
+  - P1B: {instanceID: 0}
+  - P1C: {instanceID: 0}
+  - P2A: {instanceID: 0}
+  - P2B: {instanceID: 0}
+  - P2C: {instanceID: 0}
+  - P3A: {instanceID: 0}
+  - P3B: {instanceID: 0}
+  - P3C: {instanceID: 0}
+  - pauseMenuUI: {instanceID: 0}
+  - PC: {fileID: 919132149155446097, guid: 164bfcb5ded8102459ba75c4e2b45e74, type: 3}
+  - clickSound: {fileID: 8300000, guid: fb8255993a776354f8b4885b84b9c77a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
