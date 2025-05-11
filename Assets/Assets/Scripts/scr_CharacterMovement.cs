@@ -5,7 +5,8 @@ using UnityEngine;
 public class scr_CharacterMovement : MonoBehaviour
 {
     [SerializeField] private AudioClip[] FootstepsSoundClips;
-
+    [SerializeField] private float walkStepInterval = 0.5f;
+    private float footstepTimer = 0f;
 
     // Componentes del personaje
     private CharacterController controller;
@@ -24,7 +25,6 @@ public class scr_CharacterMovement : MonoBehaviour
     public float interactionRange = 3f; // Rango de interacción
     private GameObject heldObject = null;
     public Transform hand;              // Punto donde se posicionará el objeto recogido
-
 
     void Start()
     {
@@ -46,9 +46,6 @@ public class scr_CharacterMovement : MonoBehaviour
     void HandleMovement()
     {
         if (CanMove == true)
-            // Player Footsteps
-            
-            //Scr_SoundManager.instance.PlayRandomSoundFXClip(FootstepsSoundClips, transform, 1f);
         {
             // Obtener inputs de movimiento
             float horizontalInput = Input.GetAxisRaw("Horizontal");
@@ -75,16 +72,27 @@ public class scr_CharacterMovement : MonoBehaviour
 
             // Mover al personaje
             controller.Move(velocity * Time.deltaTime);
-           
+
+            // Reproducir sonido de pasos con delay
+            if (moveDirection.magnitude > 0.1f)
+            {
+                footstepTimer -= Time.deltaTime;
+                if (footstepTimer <= 0f && controller.isGrounded)
+                {
+                    Scr_SoundManager.instance.PlayRandomSoundFXClip(FootstepsSoundClips, transform, 0.8f);
+                    footstepTimer = walkStepInterval;
+                }
+            }
+            else
+            {
+                footstepTimer = 0f;
+            }
 
             // Rotar el modelo del personaje hacia la dirección del movimiento
             if (moveDirection.magnitude > 0)
             {
                 characterModel.transform.rotation = Quaternion.LookRotation(moveDirection);
             }
-
-           
-
         }
     }
 
@@ -106,10 +114,7 @@ public class scr_CharacterMovement : MonoBehaviour
         // Si hay un objeto recogido, posicionarlo en la mano y hacer que siga la cámara
         if (heldObject != null)
         {
-            // Posiciona el objeto en la mano
             heldObject.transform.position = mainCamera.transform.position + mainCamera.transform.forward * 0.5f;
-
-            // Hace que el objeto siga la rotación de la cámara directamente
             heldObject.transform.rotation = mainCamera.transform.rotation;
         }
     }
@@ -124,19 +129,18 @@ public class scr_CharacterMovement : MonoBehaviour
         {
             if (hit.transform.CompareTag("Pickup"))
             {
-                // Recoger el objeto
                 heldObject = hit.transform.gameObject;
                 Rigidbody rb = heldObject.GetComponent<Rigidbody>();
 
                 if (rb != null)
                 {
-                    rb.isKinematic = true; // Desactivar físicas
+                    rb.isKinematic = true;
                     rb.useGravity = false;
                 }
             }
             else if (hit.transform.CompareTag("Chair"))
             {
-                SwitchToFixedCamera(); // Cambia la cámara según lo que requieras
+                SwitchToFixedCamera();
             }
         }
     }
@@ -150,9 +154,9 @@ public class scr_CharacterMovement : MonoBehaviour
 
             if (rb != null)
             {
-                rb.isKinematic = false; // Reactivar físicas
+                rb.isKinematic = false;
                 rb.useGravity = true;
-                rb.AddForce(mainCamera.transform.forward * 2f, ForceMode.Impulse); // Pequeña fuerza
+                rb.AddForce(mainCamera.transform.forward * 2f, ForceMode.Impulse);
             }
 
             heldObject = null;
@@ -163,6 +167,5 @@ public class scr_CharacterMovement : MonoBehaviour
     void SwitchToFixedCamera()
     {
         Debug.Log("Interacción con silla detectada. Aquí podrías activar una cámara fija.");
-        // Lógica para cambiar de cámara si en un futuro decides implementar algo.
     }
 }
