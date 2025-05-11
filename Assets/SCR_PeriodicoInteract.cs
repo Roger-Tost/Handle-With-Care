@@ -13,19 +13,45 @@ public class SCR_PeriodicoInteract : MonoBehaviour
     [Tooltip("GameObject de la imagen en el Canvas (debe estar desactivado al inicio)")]
     [SerializeField] private GameObject pauseImage;
 
+    [Tooltip("Texto para mostrar cuando el jugador puede interactuar")]
+    [SerializeField] private GameObject interactionText;
+
     private bool isPlayerInRange = false;
     private bool isPaused = false;
+
+    private void Start()
+    {
+        // Ensure interaction text is hidden at the start
+        if (interactionText != null)
+        {
+            interactionText.SetActive(false);
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag(playerTag))
+        {
             isPlayerInRange = true;
+            // Show interaction text when player is within range
+            if (interactionText != null)
+            {
+                interactionText.SetActive(true);
+            }
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag(playerTag))
+        {
             isPlayerInRange = false;
+            // Hide interaction text when player exits the range
+            if (interactionText != null)
+            {
+                interactionText.SetActive(false);
+            }
+        }
     }
 
     private void Update()

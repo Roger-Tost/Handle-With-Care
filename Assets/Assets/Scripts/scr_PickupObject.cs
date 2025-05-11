@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; // Only needed if you're using TextMeshPro
 
 public class scr_PickupObject : MonoBehaviour
 {
@@ -19,11 +20,15 @@ public class scr_PickupObject : MonoBehaviour
     [Tooltip("1 = teclado (lógica especial de entrega)")]
     public int IDObjeto;
 
+    [Header("UI Interacción")]
+    [Tooltip("UI que muestra el mensaje [E] to interact")]
+    [SerializeField] private GameObject interactionPromptUI;
+
     // Variables de estado
     public bool activo;
     public bool objetoEnMano;
     public bool TieneElTeclado;
-    public bool Comprobante; // Será true al tocar un objeto con tag "Comprobante"
+    public bool Comprobante;
 
     // Componentes en runtime
     public Scr_PosicionObjetos PosicionObjetos;
@@ -34,23 +39,20 @@ public class scr_PickupObject : MonoBehaviour
     public Vector3 escalaOriginal;
     public Quaternion rotacionOriginal;
 
-    // Nuevo estado para verificar si ya se está sosteniendo un objeto
-    public static bool EstaSosteniendoObjeto = false; // Variable global que rastrea si el jugador ya tiene un objeto
+    // Estado global de si el jugador sostiene un objeto
+    public static bool EstaSosteniendoObjeto = false;
 
     public void Start()
     {
-        // Verificar referencias en Inspector
         if (pickup == null) Debug.LogError("[Pickup] ERROR: 'pickup' no asignado en Inspector.");
         if (mano == null) Debug.LogError("[Pickup] ERROR: 'mano' no asignado en Inspector.");
         if (animator == null) Debug.LogWarning("[Pickup] Aviso: 'animator' no asignado. La animación no se ejecutará.");
 
         if (pickup != null)
         {
-            // Guardar escala y rotación original
             escalaOriginal = pickup.transform.localScale;
             rotacionOriginal = pickup.transform.rotation;
 
-            // Obtener componentes necesarios
             pickupCollider = pickup.GetComponent<Collider>();
             if (pickupCollider == null) Debug.LogError("[Pickup] ERROR: El objeto 'pickup' necesita un Collider.");
 
@@ -60,25 +62,27 @@ public class scr_PickupObject : MonoBehaviour
                 pickupRigidbody = pickup.AddComponent<Rigidbody>();
                 Debug.LogWarning("[Pickup] Rigidbody agregado automáticamente al objeto pickup.");
             }
-            // Inicializar Rigidbody
+
             pickupRigidbody.useGravity = true;
             pickupRigidbody.isKinematic = false;
         }
 
-        // Buscar componente de posición de entrega en la escena
         PosicionObjetos = FindObjectOfType<Scr_PosicionObjetos>();
+
+        // Ocultar UI al inicio
+        if (interactionPromptUI != null)
+            interactionPromptUI.SetActive(false);
     }
 
     public void Update()
     {
-        // Recoger con E, solo si no estamos sosteniendo un objeto
         if (activo && Input.GetKeyDown(KeyCode.E) && !objetoEnMano && !EstaSosteniendoObjeto)
         {
             if (IDObjeto == 1 && PosicionObjetos != null && !PosicionObjetos.ObjetoDejado)
             {
                 PillarObjeto();
                 TieneElTeclado = true;
-                EstaSosteniendoObjeto = true;  // Se marca que ahora está sosteniendo un objeto
+                EstaSosteniendoObjeto = true;
                 Debug.Log("[Pickup] Teclado recogido. TieneElTeclado = " + TieneElTeclado);
             }
             else if (IDObjeto == 1 && PosicionObjetos != null && PosicionObjetos.ObjetoDejado)
@@ -88,15 +92,18 @@ public class scr_PickupObject : MonoBehaviour
             else
             {
                 PillarObjeto();
-                EstaSosteniendoObjeto = true;  // Se marca que ahora está sosteniendo un objeto
+                EstaSosteniendoObjeto = true;
             }
+
+            // Ocultar UI al recoger
+            if (interactionPromptUI != null)
+                interactionPromptUI.SetActive(false);
         }
 
-        // Soltar con R
         if (Input.GetKeyDown(KeyCode.R) && objetoEnMano)
         {
             SoltarObjeto();
-            EstaSosteniendoObjeto = false;  // Se marca que no se está sosteniendo ningún objeto
+            EstaSosteniendoObjeto = false;
             Debug.Log("[Pickup] Tecla R presionada.");
         }
     }
@@ -104,7 +111,12 @@ public class scr_PickupObject : MonoBehaviour
     public void OnTriggerEnter(Collider other)
     {
         if (!objetoEnMano && other.CompareTag("Player"))
+        {
             activo = true;
+
+            if (interactionPromptUI != null)
+                interactionPromptUI.SetActive(true);
+        }
 
         if (other.CompareTag("Comprobante"))
             SetComprobante(true);
@@ -113,7 +125,12 @@ public class scr_PickupObject : MonoBehaviour
     public void OnTriggerExit(Collider other)
     {
         if (!objetoEnMano && other.CompareTag("Player"))
+        {
             activo = false;
+
+            if (interactionPromptUI != null)
+                interactionPromptUI.SetActive(false);
+        }
 
         if (other.CompareTag("Comprobante"))
             SetComprobante(false);
@@ -143,14 +160,10 @@ public class scr_PickupObject : MonoBehaviour
     {
         if (pickup == null || mano == null) return;
 
-        // Parent manteniendo escala y rotación mundiales
         pickup.transform.SetParent(mano, true);
-        // Colocar en la posición de la mano
         pickup.transform.position = mano.position;
-        // Restaurar rotación original
         pickup.transform.rotation = rotacionOriginal;
 
-        // Desactivar física y colisión
         if (pickupRigidbody != null)
             pickupRigidbody.isKinematic = true;
         if (pickupCollider != null)
@@ -175,13 +188,10 @@ public class scr_PickupObject : MonoBehaviour
     {
         if (pickup == null) return;
 
-        // Desvincular manteniendo mundo
         pickup.transform.SetParent(null, true);
-        // Restaurar escala y rotación originales
         pickup.transform.localScale = escalaOriginal;
         pickup.transform.rotation = rotacionOriginal;
 
-        // Reactivar física y colisión
         if (pickupRigidbody != null)
         {
             pickupRigidbody.isKinematic = false;
@@ -202,20 +212,16 @@ public class scr_PickupObject : MonoBehaviour
     {
         if (pickup == null) return;
 
-        // Desvincular manteniendo mundo
         pickup.transform.SetParent(null, true);
-        // Restaurar escala y rotación originales
         pickup.transform.localScale = escalaOriginal;
         pickup.transform.rotation = rotacionOriginal;
 
-        // Mover a punto de entrega
         if (PosicionObjetos != null)
         {
             pickup.transform.position = PosicionObjetos.transform.position;
             pickup.transform.rotation = PosicionObjetos.transform.rotation;
         }
 
-        // Dejar estático
         if (pickupRigidbody != null)
         {
             pickupRigidbody.isKinematic = true;
