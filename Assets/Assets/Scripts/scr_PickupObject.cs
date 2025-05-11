@@ -34,6 +34,9 @@ public class scr_PickupObject : MonoBehaviour
     public Vector3 escalaOriginal;
     public Quaternion rotacionOriginal;
 
+    // Nuevo estado para verificar si ya se está sosteniendo un objeto
+    public static bool EstaSosteniendoObjeto = false; // Variable global que rastrea si el jugador ya tiene un objeto
+
     public void Start()
     {
         // Verificar referencias en Inspector
@@ -68,13 +71,14 @@ public class scr_PickupObject : MonoBehaviour
 
     public void Update()
     {
-        // Recoger con E
-        if (activo && Input.GetKeyDown(KeyCode.E) && !objetoEnMano)
+        // Recoger con E, solo si no estamos sosteniendo un objeto
+        if (activo && Input.GetKeyDown(KeyCode.E) && !objetoEnMano && !EstaSosteniendoObjeto)
         {
             if (IDObjeto == 1 && PosicionObjetos != null && !PosicionObjetos.ObjetoDejado)
             {
                 PillarObjeto();
                 TieneElTeclado = true;
+                EstaSosteniendoObjeto = true;  // Se marca que ahora está sosteniendo un objeto
                 Debug.Log("[Pickup] Teclado recogido. TieneElTeclado = " + TieneElTeclado);
             }
             else if (IDObjeto == 1 && PosicionObjetos != null && PosicionObjetos.ObjetoDejado)
@@ -84,6 +88,7 @@ public class scr_PickupObject : MonoBehaviour
             else
             {
                 PillarObjeto();
+                EstaSosteniendoObjeto = true;  // Se marca que ahora está sosteniendo un objeto
             }
         }
 
@@ -91,6 +96,7 @@ public class scr_PickupObject : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R) && objetoEnMano)
         {
             SoltarObjeto();
+            EstaSosteniendoObjeto = false;  // Se marca que no se está sosteniendo ningún objeto
             Debug.Log("[Pickup] Tecla R presionada.");
         }
     }
