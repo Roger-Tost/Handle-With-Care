@@ -58,6 +58,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     void Update()
     {
+        // Mostrar textos dependiendo de la interfaz activa
         if (InterfazID == 1)
         {
             BotonesTexto[0].GetComponentInChildren<TextMeshProUGUI>().text = "Hey ya estoy aquí!";
@@ -76,11 +77,25 @@ public class Scr_SistemaOrdenador : MonoBehaviour
             BotonesTexto[1].GetComponentInChildren<TextMeshProUGUI>().text = "Ya me mude, contesto luego";
             BotonesTexto[2].GetComponentInChildren<TextMeshProUGUI>().text = "Si, estoy guardando mis cosas";
         }
+
+        // Detectar tecla E para activar/desactivar el PC
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            if (!PC.activeSelf)
+            {
+                ActivarPC();
+                ActivarInterfaz1(); // Cambia por ActivarInterfaz2 o 3 si lo deseas
+            }
+            else
+            {
+                DesactivarPC();
+            }
+        }
     }
 
     public void ActivarInterfaz1()
     {
-        PlaySound(); // Play the same sound for interface selection
+        PlaySound();
         InterfazPersona1.SetActive(true);
         InterfazPersona2.SetActive(false);
         InterfazPersona3.SetActive(false);
@@ -92,7 +107,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void ActivarInterfaz2()
     {
-        PlaySound(); // Play the same sound for interface selection
+        PlaySound();
         InterfazPersona1.SetActive(false);
         InterfazPersona2.SetActive(true);
         InterfazPersona3.SetActive(false);
@@ -104,7 +119,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void ActivarInterfaz3()
     {
-        PlaySound(); // Play the same sound for interface selection
+        PlaySound();
         InterfazPersona1.SetActive(false);
         InterfazPersona2.SetActive(false);
         InterfazPersona3.SetActive(true);
@@ -116,7 +131,7 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void ActivarPC()
     {
-        PlaySound(); // Play the same sound when activating PC
+        PlaySound();
         PC.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
         Cursor.visible = true;
@@ -125,83 +140,60 @@ public class Scr_SistemaOrdenador : MonoBehaviour
 
     public void DesactivarPC()
     {
-        PlaySound(); // Play the same sound when deactivating PC
+        PlaySound();
         PC.SetActive(false);
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         Time.timeScale = 1;
+
+        // También ocultamos las interfaces cuando cerramos el PC
+        InterfazPersona1.SetActive(false);
+        InterfazPersona2.SetActive(false);
+        InterfazPersona3.SetActive(false);
+
+        BotonesTexto[0].gameObject.SetActive(false);
+        BotonesTexto[1].gameObject.SetActive(false);
+        BotonesTexto[2].gameObject.SetActive(false);
     }
 
     public void Opcion(int Respuesta)
     {
+        PlaySound();
 
-        PlaySound(); // Play the same sound for interface selection
         if (InterfazID == 1 && PuedeDarRespuesta1)
         {
-            if (Respuesta == 1)
-            {
-                P1A.SetActive(true);
-                PuedeDarRespuesta1 = false;
-            }
-            else if (Respuesta == 2)
-            {
-                P1B.SetActive(true);
-                PuedeDarRespuesta1 = false;
-            }
-            else if (Respuesta == 3)
-            {
-                P1C.SetActive(true);
-                PuedeDarRespuesta1 = false;
-            }
+            if (Respuesta == 1) P1A.SetActive(true);
+            else if (Respuesta == 2) P1B.SetActive(true);
+            else if (Respuesta == 3) P1C.SetActive(true);
+
+            PuedeDarRespuesta1 = false;
         }
 
         if (InterfazID == 2 && PuedeDarRespuesta2)
         {
-            if (Respuesta == 1)
-            {
-                P2A.SetActive(true);
-                PuedeDarRespuesta2 = false;
-            }
-            else if (Respuesta == 2)
-            {
-                P2B.SetActive(true);
-                PuedeDarRespuesta2 = false;
-            }
-            else if (Respuesta == 3)
-            {
-                P2C.SetActive(true);
-                PuedeDarRespuesta2 = false;
-            }
+            if (Respuesta == 1) P2A.SetActive(true);
+            else if (Respuesta == 2) P2B.SetActive(true);
+            else if (Respuesta == 3) P2C.SetActive(true);
+
+            PuedeDarRespuesta2 = false;
         }
 
         if (InterfazID == 3 && PuedeDarRespuesta3)
         {
-            if (Respuesta == 1)
-            {
-                P3A.SetActive(true);
-                PuedeDarRespuesta3 = false;
-            }
-            else if (Respuesta == 2)
-            {
-                P3B.SetActive(true);
-                PuedeDarRespuesta3 = false;
-            }
-            else if (Respuesta == 3)
-            {
-                P3C.SetActive(true);
-                PuedeDarRespuesta3 = false;
-            }
+            if (Respuesta == 1) P3A.SetActive(true);
+            else if (Respuesta == 2) P3B.SetActive(true);
+            else if (Respuesta == 3) P3C.SetActive(true);
+
+            PuedeDarRespuesta3 = false;
         }
     }
 
-    // This method is called by the Exit Button in the UI
     public void OnExitButtonPressed()
     {
-        PlaySound(); // Play the same sound when clicking exit
-        DesactivarPC(); // Calls the function to deactivate the PC interface
+        PlaySound();
+        DesactivarPC();
     }
 
-    // Common method to play the sound effect
     private void PlaySound()
     {
         if (soundManager != null && mouseClickSound != null)
