@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8a9f60d376ed4844fa76c2f8ad8d74ca
+guid: b6157991585794a418de9fead5cc6b31
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Kitchen_Set_02
-    second: {fileID: 2100000, guid: 2769a6a74f2a304479f75d9a27d1b781, type: 2}
+      name: standardSurface1
+    second: {fileID: 2100000, guid: 4aee0c38a2d7a51418898bf2a37247c8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
