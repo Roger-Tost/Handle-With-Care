@@ -39,6 +39,10 @@ public class DragUI : MonoBehaviour
         Vector2 mousePos = Input.mousePosition;
         foreach (RectTransform element in draggableUIElements)
         {
+            // Verifica que el GameObject esté activo
+            if (!element.gameObject.activeInHierarchy)
+                continue;
+
             if (RectTransformUtility.RectangleContainsScreenPoint(element, mousePos, canvas.worldCamera))
             {
                 selectedElement = element;

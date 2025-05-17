@@ -2,8 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UiCollisionTrigger : MonoBehaviour
+public class SCR_NotasMostradas2AhoraEsUnaPutaMierda : MonoBehaviour
 {
+   
+    //Cada vez que abro este proyecto me sorprendéis, en el buen sentido.
+    //Funad al Gran Modelador.
+    
     [Header("Imágenes que deben colisionar")]
     public RectTransform imagenA;
     public RectTransform imagenB;
