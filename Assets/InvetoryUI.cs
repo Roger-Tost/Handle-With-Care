@@ -8,8 +8,17 @@ public class InvetoryUI : MonoBehaviour
     public GameObject inventoryPanel;
 
     [Header("Sistema de notas")]
-    public bool nota1 = false;                  // Esta la puedes activar desde otro script
-    public GameObject nota1Image;               // Imagen que se mostrará si nota1 es true
+    public bool nota1 = false;
+    public GameObject nota1Image;
+
+    public bool nota2 = false;
+    public GameObject nota2Image;
+
+    public bool nota3 = false;
+    public GameObject nota3Image;
+
+    public bool nota4 = false;
+    public GameObject nota4Image;
 
     private bool isInventoryOpen = false;
 
@@ -19,8 +28,10 @@ public class InvetoryUI : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
 
-        if (nota1Image != null)
-            nota1Image.SetActive(false); // Asegúrate de que la imagen esté desactivada al inicio
+        if (nota1Image != null) nota1Image.SetActive(false);
+        if (nota2Image != null) nota2Image.SetActive(false);
+        if (nota3Image != null) nota3Image.SetActive(false);
+        if (nota4Image != null) nota4Image.SetActive(false);
     }
 
     void Update()
@@ -30,11 +41,18 @@ public class InvetoryUI : MonoBehaviour
             ToggleInventory();
         }
 
-        // Activar la imagen de la nota si la booleana es true
+        // Mostrar notas si están activadas y aún no visibles
         if (nota1 && nota1Image != null && !nota1Image.activeSelf)
-        {
             nota1Image.SetActive(true);
-        }
+
+        if (nota2 && nota2Image != null && !nota2Image.activeSelf)
+            nota2Image.SetActive(true);
+
+        if (nota3 && nota3Image != null && !nota3Image.activeSelf)
+            nota3Image.SetActive(true);
+
+        if (nota4 && nota4Image != null && !nota4Image.activeSelf)
+            nota4Image.SetActive(true);
     }
 
     void ToggleInventory()
