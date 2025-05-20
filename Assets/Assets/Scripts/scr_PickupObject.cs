@@ -24,6 +24,13 @@ public class scr_PickupObject : MonoBehaviour
     [Tooltip("UI que muestra el mensaje [E] to interact")]
     [SerializeField] private GameObject interactionPromptUI;
 
+    [Header("Activación por Comprobante")]
+    [Tooltip("GameObject que se activa cuando el objeto entra en contacto con 'Comprobante'")]
+    public GameObject objetoAActivarConComprobante;
+
+    [Tooltip("BoxCollider con isTrigger=true que se desactiva al detectar 'Comprobante'")]
+    public Collider triggerDesactivable;
+
     // Variables de estado
     public bool activo;
     public bool objetoEnMano;
@@ -72,6 +79,9 @@ public class scr_PickupObject : MonoBehaviour
         // Ocultar UI al inicio
         if (interactionPromptUI != null)
             interactionPromptUI.SetActive(false);
+
+        if (objetoAActivarConComprobante != null)
+            objetoAActivarConComprobante.SetActive(false);
     }
 
     public void Update()
@@ -95,7 +105,6 @@ public class scr_PickupObject : MonoBehaviour
                 EstaSosteniendoObjeto = true;
             }
 
-            // Ocultar UI al recoger
             if (interactionPromptUI != null)
                 interactionPromptUI.SetActive(false);
         }
@@ -113,7 +122,6 @@ public class scr_PickupObject : MonoBehaviour
         if (!objetoEnMano && other.CompareTag("Player"))
         {
             activo = true;
-
             if (interactionPromptUI != null)
                 interactionPromptUI.SetActive(true);
         }
@@ -127,7 +135,6 @@ public class scr_PickupObject : MonoBehaviour
         if (!objetoEnMano && other.CompareTag("Player"))
         {
             activo = false;
-
             if (interactionPromptUI != null)
                 interactionPromptUI.SetActive(false);
         }
@@ -151,9 +158,17 @@ public class scr_PickupObject : MonoBehaviour
     private void SetComprobante(bool value)
     {
         Comprobante = value;
+
         if (animator != null)
             animator.SetBool("Comprobante", value);
-        Debug.Log("[Pickup] Comprobante=" + Comprobante);
+
+        if (objetoAActivarConComprobante != null)
+            objetoAActivarConComprobante.SetActive(value);
+
+        if (triggerDesactivable != null && triggerDesactivable.isTrigger)
+            triggerDesactivable.enabled = !value;
+
+        Debug.Log("[Pickup] Comprobante=" + Comprobante + ", Trigger desactivado=" + value);
     }
 
     public void PillarObjeto()
