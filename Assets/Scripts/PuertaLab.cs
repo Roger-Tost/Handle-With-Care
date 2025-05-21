@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PuertaLab : MonoBehaviour
 {
@@ -12,15 +13,18 @@ public class PuertaLab : MonoBehaviour
 
     [Header("Estado de la puerta")]
     public bool isOpen = false;
-    public bool isLocked;              // Puerta bloqueada estándar
-    public bool isLockedWithKeyLab;    // Puerta bloqueada por llave
+    public bool isLocked;
+    public bool isLockedWithKeyLab;
 
     [Header("UI")]
     [SerializeField] private GameObject interactText;
-    [SerializeField] private TextMeshProUGUI missingKeyText;  // Texto TMP: "Te falta una llave"
+    [SerializeField] private TextMeshProUGUI missingKeyText;
 
     [Header("Referencia a la llave")]
-    public LlaveLab keyPickup;  // Asignar el script de la llave desde el Inspector
+    public LlaveLab keyPickup;
+
+    [Header("Escena a cargar")]
+    [SerializeField] private string sceneToLoad;
 
     public bool playerInRange = false;
 
@@ -37,7 +41,6 @@ public class PuertaLab : MonoBehaviour
     {
         if (playerInRange && Input.GetKeyDown(KeyCode.E))
         {
-            // Si la puerta está bloqueada por llave
             if (isLockedWithKeyLab)
             {
                 if (keyPickup != null && keyPickup.GetKey)
@@ -46,20 +49,19 @@ public class PuertaLab : MonoBehaviour
                 }
                 else
                 {
-                    if (missingKeyText != null)
-                        missingKeyText.gameObject.SetActive(true);
+                    MostrarMensaje("Te falta una llave");
                 }
             }
             else if (!isLocked)
             {
                 AbrirPuerta();
             }
-            else
+            else // Puerta bloqueada estándar (sin llave)
             {
                 doorAnimator.SetTrigger("isLocked");
+                MostrarMensaje("Está bloqueada");
             }
 
-            // Ocultar texto de interacción después de intentar abrir
             if (interactText != null)
                 interactText.SetActive(false);
         }
@@ -73,6 +75,26 @@ public class PuertaLab : MonoBehaviour
 
         if (missingKeyText != null)
             missingKeyText.gameObject.SetActive(false);
+
+        if (!string.IsNullOrEmpty(sceneToLoad))
+        {
+            StartCoroutine(AbrirPuertaYEsperarCambioDeEscena());
+        }
+    }
+
+    private IEnumerator AbrirPuertaYEsperarCambioDeEscena()
+    {
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene(sceneToLoad);
+    }
+
+    private void MostrarMensaje(string mensaje)
+    {
+        if (missingKeyText != null)
+        {
+            missingKeyText.text = mensaje;
+            missingKeyText.gameObject.SetActive(true);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -81,9 +103,7 @@ public class PuertaLab : MonoBehaviour
         {
             playerInRange = true;
 
-            if (!isLocked && !isLockedWithKeyLab && interactText != null)
-                interactText.SetActive(true);
-            else if ((isLockedWithKeyLab || isLocked) && interactText != null)
+            if (interactText != null)
                 interactText.SetActive(true);
         }
     }

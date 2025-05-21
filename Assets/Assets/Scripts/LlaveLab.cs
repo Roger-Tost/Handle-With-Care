@@ -5,8 +5,8 @@ using UnityEngine;
 
 public class LlaveLab : MonoBehaviour
 {
-    public bool GetKey = false;                    // Variable que se activa al presionar E
-    public TextMeshProUGUI interactionText;        // Referencia al texto TMP en la UI
+    public bool GetKey = false;
+    public TextMeshProUGUI interactionText;
 
     private bool isPlayerInRange = false;
 
@@ -14,7 +14,7 @@ public class LlaveLab : MonoBehaviour
     {
         if (interactionText != null)
         {
-            interactionText.gameObject.SetActive(false); // Ocultar texto al inicio
+            interactionText.gameObject.SetActive(false);
         }
     }
 
@@ -23,11 +23,16 @@ public class LlaveLab : MonoBehaviour
         if (isPlayerInRange && Input.GetKeyDown(KeyCode.E))
         {
             GetKey = true;
+
             if (interactionText != null)
             {
-                interactionText.gameObject.SetActive(false); // Ocultar el texto
+                interactionText.text = "¡Llave recogida!";
+                StartCoroutine(HideInteractionTextAfterSeconds(2f)); // Oculta el texto tras 2 segundos
             }
-            gameObject.SetActive(false); // Desactiva este GameObject
+
+            // Desactivamos solo la parte visual y el collider de la llave
+            GetComponent<Renderer>().enabled = false;
+            GetComponent<Collider>().enabled = false;
         }
     }
 
@@ -36,9 +41,10 @@ public class LlaveLab : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             isPlayerInRange = true;
-            if (interactionText != null)
+            if (interactionText != null && !GetKey)
             {
-                interactionText.gameObject.SetActive(true); // Mostrar texto TMP
+                interactionText.text = "Pulsa E para recoger la llave";
+                interactionText.gameObject.SetActive(true);
             }
         }
     }
@@ -50,8 +56,17 @@ public class LlaveLab : MonoBehaviour
             isPlayerInRange = false;
             if (interactionText != null)
             {
-                interactionText.gameObject.SetActive(false); // Ocultar texto TMP
+                interactionText.gameObject.SetActive(false);
             }
+        }
+    }
+
+    IEnumerator HideInteractionTextAfterSeconds(float seconds)
+    {
+        yield return new WaitForSeconds(seconds);
+        if (interactionText != null)
+        {
+            interactionText.gameObject.SetActive(false);
         }
     }
 }
