@@ -1,31 +1,29 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
-public class SCR_AbrirArmario : MonoBehaviour
+public class ArmarioGrande : MonoBehaviour
 {
-    public Animator animador;
-    public TextMeshProUGUI mensajeTMP;
+    public Animator animador; // Asigna el Animator del objeto
+    public TextMeshProUGUI mensajeTMP; // Asigna el texto TMP de la UI
     public string mensajeInteraccion = "Presiona F para abrir";
 
     private bool jugadorCerca = false;
-    private bool abierto = false;
+    private bool abierto = false; // Controla si ya se abrió
 
     public GameObject Interior;
-
-    public scr_Sleep sleepScript; // Referencia al script Sleep
 
     private void Start()
     {
         if (mensajeTMP != null)
-            mensajeTMP.text = "";
+            mensajeTMP.text = ""; // Oculta el texto al inicio
         Interior.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !abierto && sleepScript != null && sleepScript.HasSleep)
+        if (other.CompareTag("Player") && !abierto)
         {
             jugadorCerca = true;
             if (mensajeTMP != null)
@@ -45,13 +43,13 @@ public class SCR_AbrirArmario : MonoBehaviour
 
     private void Update()
     {
-        if (jugadorCerca && Input.GetKeyDown(KeyCode.F) && !abierto && sleepScript != null && sleepScript.HasSleep)
+        if (jugadorCerca && Input.GetKeyDown(KeyCode.F) && !abierto)
         {
             Interior.SetActive(true);
             animador.SetBool("Abierto", true);
-            abierto = true;
+            abierto = true; // Marcar como abierto
             if (mensajeTMP != null)
-                mensajeTMP.text = "";
+                mensajeTMP.text = ""; // Oculta el mensaje permanentemente
         }
     }
 }

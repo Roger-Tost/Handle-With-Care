@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -6,27 +6,27 @@ using UnityEngine.UI;
 
 public class scr_Sleep: MonoBehaviour
 {
-    public Image fadeImage; // Imagen de la UI que realiza el fundido
-    public float fadeDuration = 1.0f; // Duración del fundido
-    public float waitTime = 1.0f; // Tiempo que la pantalla permanece en negro
-    private bool activo; // Determina si el trigger está activo
+    public Image fadeImage;
+    public float fadeDuration = 1.0f;
+    public float waitTime = 1.0f;
+    private bool activo;
     private scr_CharacterMovement CharacterScript;
+
+    public bool HasSleep = false; // Nueva variable
+    private Collider sleepCollider;
 
     void Start()
     {
         CharacterScript = FindObjectOfType<scr_CharacterMovement>();
+        sleepCollider = GetComponent<Collider>();
 
         if (fadeImage == null)
         {
             fadeImage = FindObjectOfType<Canvas>().GetComponentInChildren<Image>();
             if (fadeImage == null)
-            {
-                //Debug.LogError("No se encontró ninguna imagen de fundido. Asigna una manualmente.");
                 return;
-            }
         }
 
-        // 1) Al iniciar el juego, la imagen queda desactivada:
         fadeImage.gameObject.SetActive(false);
     }
 
@@ -34,10 +34,7 @@ public class scr_Sleep: MonoBehaviour
     {
         if (activo && Input.GetKeyDown(KeyCode.E))
         {
-            // 2) Al pulsar E, primero activamos la imagen...
             fadeImage.gameObject.SetActive(true);
-
-            // ...y lanzamos las corrutinas de dormir y fundido:
             StartCoroutine(Dormir(4));
             StartCoroutine(FadeInAndOut());
             CharacterScript.CanMove = false;
@@ -46,7 +43,7 @@ public class scr_Sleep: MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Verificar si el objeto que entra tiene el tag "Player"
+        if (other.CompareTag("Player"))
         {
             activo = true;
         }
@@ -54,7 +51,7 @@ public class scr_Sleep: MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.CompareTag("Player")) // Verificar si el objeto que sale tiene el tag "Player"
+        if (other.CompareTag("Player"))
         {
             activo = false;
         }
@@ -62,18 +59,9 @@ public class scr_Sleep: MonoBehaviour
 
     private IEnumerator FadeInAndOut()
     {
-        if (fadeImage == null)
-        {
-            yield break; // Detener si no hay una imagen asignada
-        }
-
-        // Fundido a negro (fade-in)
+        if (fadeImage == null) yield break;
         yield return StartCoroutine(Fade(0f, 1f));
-
-        // Esperar mientras la pantalla está completamente negra
         yield return new WaitForSeconds(waitTime);
-
-        // Fundido de regreso a transparente (fade-out)
         yield return StartCoroutine(Fade(1f, 0f));
     }
 
@@ -92,15 +80,18 @@ public class scr_Sleep: MonoBehaviour
             yield return null;
         }
 
-        currentColor.a = endAlpha; // Asegurar el valor final
+        currentColor.a = endAlpha;
         fadeImage.color = currentColor;
     }
-
 
     private IEnumerator Dormir(float TiempoCama)
     {
         CharacterScript.transform.position = transform.position;
         yield return new WaitForSeconds(TiempoCama);
         CharacterScript.CanMove = true;
+        HasSleep = true;
+
+        activo = false; // Desactivamos manualmente la interacciÃ³n
+        sleepCollider.enabled = false; // Y luego desactivamos el collider
     }
 }

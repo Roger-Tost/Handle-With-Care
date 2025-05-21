@@ -4,12 +4,13 @@ using UnityEngine;
 
 public class SCR_DestruirEnPapelera : MonoBehaviour
 {
+    public GameObject Carne;
+
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Carne_Podrida"))
+        if (other.gameObject == Carne)
         {
-            Debug.Log("[Papelera] Carne podrida destruida.");
-            Destroy(other.gameObject);
+            Destroy(Carne);
         }
     }
 }
