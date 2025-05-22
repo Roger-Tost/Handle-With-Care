@@ -69,7 +69,20 @@ PrefabInstance:
       value: Grabadora
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -8955592295235564519, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: -213630803924964486, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 3388020626195795228, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 6530670318733376646, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 2634635283772859702, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 3122146463012792696, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 7664648207401458535, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 3486091895181825136, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: -3879136201675466068, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: -5017043930725561316, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: -3880964934742006811, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 956340378062877555, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
+    - {fileID: 1826121493888945607, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35958d468e5662445ba01fbd7b21a1c5, type: 3}
