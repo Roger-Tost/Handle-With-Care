@@ -2528,8 +2528,11 @@ MonoBehaviour:
   Grandma_Cough: {fileID: 8300000, guid: 4fed79e57f8218c42aae073a348e9829, type: 3}
   Player_Cough: {fileID: 8300000, guid: 3f042da562aee09489d02bef66df6e2f, type: 3}
   delayBetweenAudios: 1
+  longDelayBetweenAudios: 5
+  interactionPromptUI: {fileID: 1396118492}
   fadeImage: {fileID: 683989577}
   fadeDuration: 1
+  waitTime: 1
 --- !u!65 &498287968
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3816,7 +3819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &683989577
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3830,7 +3833,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -7081,6 +7084,12 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8437453174422290685, guid: 0460c4284ff0b38468308371c12c3aa5, type: 3}
+      propertyPath: m_text
+      value: 'R - Soltar objetos
+
+        I - Coleccionables'
+      objectReference: {fileID: 0}
     - target: {fileID: 8530821997324937294, guid: 0460c4284ff0b38468308371c12c3aa5, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -7097,7 +7106,7 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 7647432945108469552, guid: 0460c4284ff0b38468308371c12c3aa5, type: 3}
-      insertIndex: 0
+      insertIndex: -1
       addedObject: {fileID: 683989579}
     - targetCorrespondingSourceObject: {fileID: 2876571409185961820, guid: 0460c4284ff0b38468308371c12c3aa5, type: 3}
       insertIndex: -1

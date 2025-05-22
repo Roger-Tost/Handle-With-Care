@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class scr_Abuela : MonoBehaviour
@@ -11,9 +12,12 @@ public class scr_Abuela : MonoBehaviour
     public AudioClip Grandma_Cough;
     public AudioClip Player_Cough;
     public float delayBetweenAudios = 2f;
+    public float longDelayBetweenAudios = 5f;
 
+    public GameObject interactionPromptUI;
     public Image fadeImage; // UI negra que cubre la pantalla
     public float fadeDuration = 1f;
+    public float waitTime = 1f;
 
     private bool playerInside = false;
     private bool hasInteracted = false;
@@ -40,36 +44,55 @@ public class scr_Abuela : MonoBehaviour
         audioPlayer.clip = Player_Cough;
         audioPlayer.Play();
 
-        // Fundido a negro
-        yield return StartCoroutine(FadeToBlack());
+        yield return new WaitForSeconds(longDelayBetweenAudios);
+        StartCoroutine(FadeInAndOut());
+
+        yield return new WaitForSeconds(longDelayBetweenAudios);
+        SceneManager.LoadScene(0);
+    }
+    
+
+    private IEnumerator FadeInAndOut()
+    {
+        if (fadeImage == null) yield break;
+        yield return StartCoroutine(Fade(0f, 1f));
     }
 
-    IEnumerator FadeToBlack()
+    private IEnumerator Fade(float startAlpha, float endAlpha)
     {
-        float elapsed = 0f;
-        Color c = fadeImage.color;
+        float elapsedTime = 0f;
+        Color currentColor = fadeImage.color;
+        currentColor.a = startAlpha;
+        fadeImage.color = currentColor;
 
-        while (elapsed < fadeDuration)
+        while (elapsedTime < fadeDuration)
         {
-            elapsed += Time.deltaTime;
-            c.a = Mathf.Clamp01(elapsed / fadeDuration);
-            fadeImage.color = c;
+            elapsedTime += Time.deltaTime;
+            currentColor.a = Mathf.Lerp(startAlpha, endAlpha, elapsedTime / fadeDuration);
+            fadeImage.color = currentColor;
             yield return null;
         }
+
+        currentColor.a = endAlpha;
+        fadeImage.color = currentColor;
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            if (interactionPromptUI != null)
+                interactionPromptUI.SetActive(true);
             playerInside = true;
         }
     }
 
-    private void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
+            if (interactionPromptUI != null)
+                interactionPromptUI.SetActive(false);
             playerInside = false;
         }
     }
