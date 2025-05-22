@@ -44,6 +44,14 @@ public class Scr_grabadora : MonoBehaviour
 
                     case 4: abuela[4].Play(); Debug.Log("audio 4"); break;
 
+                    case 5: abuela[5].Play(); Debug.Log("audio 5"); break;
+
+                    case 6: abuela[6].Play(); Debug.Log("audio 6"); break;
+
+                    case 7: abuela[7].Play(); Debug.Log("audio 7"); break;
+
+                    case 8: abuela[8].Play(); Debug.Log("audio 8"); break;
+
                 }
 
                 textoActual++;
@@ -71,6 +79,10 @@ public class Scr_grabadora : MonoBehaviour
                     case 5: abuela[4].Play(); Debug.Log("audio 5"); break;
 
                     case 6: abuela[6].Play(); Debug.Log("audio 6"); break;
+
+                    case 7: abuela[7].Play(); Debug.Log("audio 7"); break;
+
+                    case 8: abuela[8].Play(); Debug.Log("audio 8"); break;
                 }
 
                 textoActual++;
