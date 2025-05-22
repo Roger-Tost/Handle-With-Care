@@ -1,109 +1,112 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.Windows;
 
 public class Scr_grabadora : MonoBehaviour
 {
     public GameObject interactionPromptUI;
     public string[] TextosParaMostrar;
     public AudioSource[] abuela;
+
     int textoActual;
     [SerializeField] TextMeshProUGUI textUI;
-    [SerializeField] float time;
+    [SerializeField] float time = 0.05f;
     public bool coldown = false;
     bool activo;
 
-    // Start is called before the first frame update
+    BoxCollider boxCollider;
+
     void Start()
     {
-
+        boxCollider = GetComponent<BoxCollider>();
+        if (boxCollider == null)
+            Debug.LogWarning("No BoxCollider found on this object.");
     }
 
-
-    private void Update()
+    void Update()
     {
-        if (UnityEngine.Input.GetKeyDown(KeyCode.E) && activo && !coldown) 
+        if (Input.GetKeyDown(KeyCode.E) && activo && !coldown)
         {
             if (textoActual < TextosParaMostrar.Length)
             {
-                //aqui va el audio de enceder
-                StartCoroutine(ShowText(TextosParaMostrar[textoActual]));
-
-                switch (textoActual) 
-                {
-                    case 0: abuela[0].Play(); Debug.Log("audio 0"); break;
-
-                    case 1: abuela[1].Play(); Debug.Log("audio 1"); break;
-
-                    case 2: abuela[2].Play(); Debug.Log("audio 2"); break;
-
-                    case 3: abuela[3].Play(); Debug.Log("audio 3"); break;
-
-                    case 4: abuela[4].Play(); Debug.Log("audio 4"); break;
-
-                    case 5: abuela[5].Play(); Debug.Log("audio 5"); break;
-
-                    case 6: abuela[6].Play(); Debug.Log("audio 6"); break;
-
-                    case 7: abuela[7].Play(); Debug.Log("audio 7"); break;
-
-                    case 8: abuela[8].Play(); Debug.Log("audio 8"); break;
-
-                    case 9: abuela[9].Play(); Debug.Log("audio 9"); break;
-
-                    case 10: abuela[10].Play(); Debug.Log("audio 10"); break;
-
-                }
-
+                StartCoroutine(PlayAudioAndShowText(textoActual));
                 textoActual++;
-
-            }
-
-            else
-            {
-   
-                textoActual = 0;
-                StartCoroutine(ShowText(TextosParaMostrar[textoActual]));
-                
-                switch (textoActual) 
-                {
-                    case 0: abuela[0].Play(); Debug.Log("audio 0"); break;
-
-                    case 1: abuela[1].Play(); Debug.Log("audio 1"); break;
-
-                    case 2: abuela[2].Play(); Debug.Log("audio 2"); break;
-
-                    case 3: abuela[3].Play(); Debug.Log("audio 3"); break;
-
-                    case 4: abuela[4].Play(); Debug.Log("audio 4"); break;
-
-                    case 5: abuela[4].Play(); Debug.Log("audio 5"); break;
-
-                    case 6: abuela[6].Play(); Debug.Log("audio 6"); break;
-
-                    case 7: abuela[7].Play(); Debug.Log("audio 7"); break;
-
-                    case 8: abuela[8].Play(); Debug.Log("audio 8"); break;
-
-                    case 9: abuela[9].Play(); Debug.Log("audio 9"); break;
-
-                    case 10: abuela[10].Play(); Debug.Log("audio 10"); break;
-                }
-
-                textoActual++;
-
             }
         }
-
     }
 
-
-    public void OnTriggerEnter(Collider other)
+    IEnumerator PlayAudioAndShowText(int index)
     {
-        if (other.CompareTag("Player"))
+        coldown = true;
+
+        if (index >= abuela.Length || index >= TextosParaMostrar.Length)
+        {
+            Debug.LogWarning("Índice fuera de rango.");
+            coldown = false;
+            yield break;
+        }
+
+        // Stop all other audios
+        foreach (var audio in abuela)
+        {
+            if (audio.isPlaying) audio.Stop();
+        }
+
+        AudioSource currentAudio = abuela[index];
+        string currentText = TextosParaMostrar[index];
+
+        currentAudio.Play();
+        textUI.text = currentText;
+        textUI.maxVisibleCharacters = 0;
+
+        int visibleCount = 0;
+
+        while (currentAudio.isPlaying && visibleCount < currentText.Length)
+        {
+            textUI.maxVisibleCharacters++;
+            visibleCount++;
+            yield return new WaitForSeconds(time);
+        }
+
+        // Show remaining characters instantly if audio ends early
+        textUI.maxVisibleCharacters = currentText.Length;
+
+        // Wait until the audio ends fully
+        while (currentAudio.isPlaying)
+        {
+            yield return null;
+        }
+
+        coldown = false;
+
+        // Check if this was the last one
+        if (textoActual >= TextosParaMostrar.Length)
+        {
+            EndInteractionForever();
+        }
+    }
+
+    void EndInteractionForever()
+    {
+        activo = false;
+        if (interactionPromptUI != null)
+            interactionPromptUI.SetActive(false);
+
+        if (textUI != null)
+        {
+            textUI.text = "";
+            textUI.maxVisibleCharacters = 0;
+        }
+
+        if (boxCollider != null)
+            boxCollider.enabled = false;
+
+        Debug.Log("Interaction permanently disabled.");
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player") && textoActual < TextosParaMostrar.Length)
         {
             activo = true;
             if (interactionPromptUI != null)
@@ -111,35 +114,13 @@ public class Scr_grabadora : MonoBehaviour
         }
     }
 
-    public void OnTriggerExit(Collider other)
+    void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             activo = false;
             if (interactionPromptUI != null)
                 interactionPromptUI.SetActive(false);
-        }
-
-    }
-
-    IEnumerator ShowText(string texto) 
-    {
-        textUI.text = texto;
-        textUI.maxVisibleCharacters = 0;
-
-        foreach (char c in texto) 
-        {
-            coldown = true;
-            textUI.maxVisibleCharacters++;
-            yield return new WaitForSeconds(time);
-            
-        }
-        Debug.Log("finished");
-        coldown = false;
-
-        foreach (var audio in abuela)
-        {
-            audio.Stop();
         }
     }
 }

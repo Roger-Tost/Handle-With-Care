@@ -10037,7 +10037,7 @@ MonoBehaviour:
     para cuando lo descubri ya era tarde,
   - "mis musculos no podian mas y mis fuerzas cedieron, la casa estaba contaminada\u2026"
   - Decidi buscar una cura, pero cada vez mi vista y mi pulso eran peores,
-  - si escuchas esto me es dificil comunicarte que seguramente acabes como yo
+  - si escuchas esto me es dificil comunicarte que seguramente acabes como yo...
   abuela:
   - {fileID: 788415163}
   - {fileID: 323420831}
@@ -10051,7 +10051,7 @@ MonoBehaviour:
   - {fileID: 207125346}
   - {fileID: 585789071}
   textUI: {fileID: 437174017}
-  time: 0.03
+  time: 0.04
   coldown: 0
 --- !u!65 &2021055456
 BoxCollider:
